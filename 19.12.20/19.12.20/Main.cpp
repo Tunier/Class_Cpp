@@ -76,6 +76,7 @@ double = 64 bit (8 Byte)
 		동적 데이터를 관리하는 영역
 
 	LIFO 구조 : Last In First Out -> (RAM) 메모리의 Stack 공간
+	
 	FIFO 구조 : First In First Out
 
 	ex) 데이터 절약차원에서 활용.
