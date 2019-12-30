@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include <iostream>
 #include <Windows.h>
 
@@ -10,10 +11,18 @@ public: // C에서 쓰는 struct는 자동 public 상태.
 
 };
 */
+struct Vector3
+{
+	float x, y;
+};
+
 
 class Object
 {
 private: // 정보가 '은닉' 상태. C++은 자동 private 상태.
+
+	Vector3 Position;
+
 	int Index;
 	int Password;
 	int Age;
@@ -22,24 +31,30 @@ private: // 정보가 '은닉' 상태. C++은 자동 private 상태.
 public: // 정보가 '공개' 상태.
 	void Initialize()
 	{
+		Position.x = 0;
+		Position.y = 0;
+		
 		Password = 0;
 		Index = 0;
 		Age = 0;
 		Name;
-	}	
-	
-	int GetIndex() { return Index; }
-	void SetIndex(int _index) {	Index = _index;	}
+	}
 
-	int GetPassword() {	return Password; }
-	void SetPassword(int _password)	{ Password = _password;	}
+	int GetIndex() { return Index; }
+	void SetIndex(int _index) { Index = _index; }
+
+	int GetPassword() { return Password; }
+	void SetPassword(int _password) { Password = _password; }
 
 	int GetAge() { return Age; }
-	void SetAge(int _age) {	Age = _age;	}
+	void SetAge(int _age) { Age = _age; }
 
 	char* GetName() { return Name; }
 	void SetName(char* _name) { Name = (char*)_name; }
-	
+
+	Vector3 GetPosition() { return Position; }
+	void SetPosition(Vector3 _position) { Position = _position; }
+
 	/*
 	void Output()
 	{
@@ -74,6 +89,9 @@ int main(void)
 		Obj[i].SetIndex(i + 1);
 		Obj[i].SetAge(i + 10);
 	}
+	
+	Obj[0].GetPosition().x;
+	Obj[0].GetPosition().y;
 
 	DWORD dwTime = GetTickCount();
 
@@ -88,28 +106,27 @@ int main(void)
 			{
 				if (Obj[i].GetPassword() > 10)
 				{
-					Obj[i].SetPassword(0);				
+					Obj[i].SetPassword(0);
 				}
-			
+
 				if (Obj[i].GetAge() > 20)
 				{
 					Obj[i].SetAge(10);
 				}
 			}
-			
+
 			for (int i = 0; i < 8; ++i)
 			{
 				Obj[i].SetPassword(Obj[i].GetPassword() + 1);
 				Obj[i].SetAge(Obj[i].GetAge() + 1);
-				std::cout << Obj[i].GetIndex() << " : " << Obj[i].GetPassword() << " / Age : "<<Obj[i].GetAge() <<std::endl;
+				std::cout << Obj[i].GetIndex() << " : " << Obj[i].GetPassword() << " / Age : " << Obj[i].GetAge() << std::endl;
 			}
-			
+
 			std::cout << Obj[0].GetName() << std::endl;
 			std::cout << Obj[1].GetName() << std::endl;
 			std::cout << Obj[2].GetName() << std::endl;
 		}
 	}
-
 
 
 	return 0;
