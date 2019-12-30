@@ -41,30 +41,33 @@ int main(void)
 		cout << iNumber << endl;
 	}
 	*/
-	
-	Player P;
 
-	P.Initialize();
-	P.Render();
+	Player* P = new Player;
+
+	P->Initialize();
+	P->Render();
 
 	cout << endl;
 
-	Monster M;
+	Monster* M = new Monster;
 
-	M.Initialize();
-	M.Render();
-
-
+	M->Initialize();
+	M->Render();
 
 
 
 
+	delete P;
+	P = NULL;
+
+	delete M;
+	M = NULL;
 
 
 
 
 
 
-	
+
 	return 0;
 }

@@ -19,6 +19,9 @@
     <Filter Include="소스 파일\Monster">
       <UniqueIdentifier>{ded8263b-2af2-4ca8-8a67-a3927308bc6b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\Stage">
+      <UniqueIdentifier>{17b6ebf5-eb33-48ba-99e7-eba655342c0e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -30,6 +33,9 @@
     <ClCompile Include="Monster.cpp">
       <Filter>소스 파일\Monster</Filter>
     </ClCompile>
+    <ClCompile Include="Stage.cpp">
+      <Filter>소스 파일\Stage</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Player.h">
@@ -40,6 +46,9 @@
     </ClInclude>
     <ClInclude Include="Monster.h">
       <Filter>소스 파일\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage.h">
+      <Filter>소스 파일\Stage</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
