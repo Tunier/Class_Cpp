@@ -7,7 +7,7 @@
 public > protected > private
 기능과 데이터를 알맞은곳에 넣어야함.
 is-a has-a 관계 검색해보기.
-
+형변환
 */
 
 /*
