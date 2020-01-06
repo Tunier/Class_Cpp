@@ -11,7 +11,7 @@ public:
 	~Stage();
 private:
 	Player* p;
-	Player* m;
+	Monster* m;
 public:
 	void Initialize();
 	void Progress();
