@@ -1,10 +1,6 @@
 #include "Headers.h"
 #include "MainUpdate.h"
 
-//#include "Object.h"
-//#include "Monster.h"
-//#include "Player.h"
-
 
 int main(void)
 {
