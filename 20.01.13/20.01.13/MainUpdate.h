@@ -6,7 +6,7 @@ class MainUpdate
 {
 public:
 	MainUpdate();
-	virtual ~MainUpdate();
+	~MainUpdate();
 public:
 	void Initailize();
 	void Update();
@@ -17,5 +17,4 @@ private:
 	Scene* m_pLogo;
 	Scene* m_pMenu;
 	Scene* m_pStage;
-}
-
+};

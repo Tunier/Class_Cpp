@@ -37,6 +37,9 @@
     <Filter Include="소스 파일\02. Scene\Stage">
       <UniqueIdentifier>{9140c89b-ff58-495e-8537-9c9e2c166937}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\01. Object\Bullet">
+      <UniqueIdentifier>{acfa3473-f42e-44b5-8db5-76cb41ccd966}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Headers.h">
@@ -66,6 +69,9 @@
     <ClInclude Include="Object.h">
       <Filter>소스 파일\01. Object</Filter>
     </ClInclude>
+    <ClInclude Include="Bullet.h">
+      <Filter>소스 파일\01. Object\Bullet</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -94,6 +100,9 @@
     </ClCompile>
     <ClCompile Include="Object.cpp">
       <Filter>소스 파일\01. Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>소스 파일\01. Object\Bullet</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

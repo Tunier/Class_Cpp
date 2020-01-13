@@ -2,8 +2,10 @@
 
 Scene::Scene()
 {
+
 }
 
 Scene::~Scene()
 {
+
 }
