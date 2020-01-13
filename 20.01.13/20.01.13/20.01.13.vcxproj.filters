@@ -40,6 +40,15 @@
     <Filter Include="소스 파일\01. Object\Bullet">
       <UniqueIdentifier>{acfa3473-f42e-44b5-8db5-76cb41ccd966}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\99. GameManager">
+      <UniqueIdentifier>{9e3130a3-db24-478b-bb6e-2d2f243f0e40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\99. GameManager\SceneManager">
+      <UniqueIdentifier>{521ec8ab-fc49-4338-a156-9f90e12d4e92}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Inlcude">
+      <UniqueIdentifier>{8280597e-6c92-406d-b8ba-681a9aabf811}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Headers.h">
@@ -72,6 +81,12 @@
     <ClInclude Include="Bullet.h">
       <Filter>소스 파일\01. Object\Bullet</Filter>
     </ClInclude>
+    <ClInclude Include="SceneManager.h">
+      <Filter>소스 파일\99. GameManager\SceneManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Enum.h">
+      <Filter>헤더 파일\Inlcude</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -103,6 +118,9 @@
     </ClCompile>
     <ClCompile Include="Bullet.cpp">
       <Filter>소스 파일\01. Object\Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneManager.cpp">
+      <Filter>소스 파일\99. GameManager\SceneManager</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
