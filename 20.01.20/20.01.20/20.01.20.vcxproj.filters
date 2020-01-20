@@ -52,6 +52,9 @@
     <Filter Include="소스 파일\03. Scene\Stage">
       <UniqueIdentifier>{0c331f1a-e306-4f05-b562-d041989fef7d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\99. Mananger\InputManager">
+      <UniqueIdentifier>{04ca930d-9ff8-4103-83b5-0b175e290cfb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -86,6 +89,9 @@
     </ClCompile>
     <ClCompile Include="SceneManager.cpp">
       <Filter>소스 파일\99. Mananger\SceneManager</Filter>
+    </ClCompile>
+    <ClCompile Include="InputManager.cpp">
+      <Filter>소스 파일\99. Mananger\InputManager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -130,6 +136,12 @@
     </ClInclude>
     <ClInclude Include="SceneManager.h">
       <Filter>소스 파일\99. Mananger\SceneManager</Filter>
+    </ClInclude>
+    <ClInclude Include="InputManager.h">
+      <Filter>소스 파일\99. Mananger\InputManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Define.h">
+      <Filter>헤더 파일\Include</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

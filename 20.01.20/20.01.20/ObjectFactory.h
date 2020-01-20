@@ -1,61 +1,25 @@
 #pragma once
-
-#include "Player.h"
-#include "Monster.h"
-#include "Bullet.h"
+#include "Object.h"
 
 
+template <typename T>
 class ObjectFactory
 {
 public:
-	static Object* CreatePlayer()
+	static Object* CreateObject()
 	{
-		Object* pObj = new Player;
+		Object* pObj = new T;
 		pObj->Initialize();
 
 		return pObj;
 	}
 
-	static Object* CreatePlayer(Vector3 _vPos)
+	static Object* CreateObject(Vector3 _vPos)
 	{
-		Object* pObj = new Player;
-		pObj->Initialize();
-		pObj->SetPosition(_vPos);
-
-		return pObj;
-	}
-	
-	static Object* CreateMonster()
-	{
-		Object* pObj = new Monster;
-		pObj->Initialize();
-
-		return pObj;
-	}
-
-	static Object* CreateMonster(Vector3 _vPos)
-	{
-		Object* pObj = new Monster;
+		Object* pObj = new T;
 		pObj->Initialize();
 		pObj->SetPosition(_vPos);
 
 		return pObj;
-	}
-
-	static Object* CreateBullet()
-	{
-		Object* pObj = new Bullet;
-		pObj->Initialize();
-
-		return pObj;
-	}
-
-	static Object* CreateBullet(Vector3 _vPos)
-	{
-		Object* pObj = new Bullet;
-		pObj->Initialize();
-		pObj->SetPosition(_vPos);
-
-		return pObj;
-	}
+	}	
 };
