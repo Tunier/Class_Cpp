@@ -3,7 +3,7 @@
 typedef struct tagVector3
 {
 	float x, y, z;
-	
+
 	tagVector3() : x(0), y(0), z(0) {};
 
 	tagVector3(float _x, float _y) : x(_x), y(_y), z(0) {};
@@ -15,5 +15,5 @@ typedef struct tagVector3
 typedef struct tagTransform
 {
 	Vector3 Position;
-	Vector3 Scale;
+	Vector3 Scale;		
 }Transform;
