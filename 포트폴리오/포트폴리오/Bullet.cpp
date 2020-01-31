@@ -17,7 +17,7 @@ void Bullet::Initialize()
 
 void Bullet::Update()
 {
-	Object
+	m_tInfo.Position.x = ObjectManager::GetInstance()->GetPlayer()->GetPosition().x + 1.f;
 }
 
 void Bullet::Render()
