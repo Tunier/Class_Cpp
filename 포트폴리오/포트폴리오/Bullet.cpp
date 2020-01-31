@@ -1,4 +1,5 @@
 #include "Bullet.h"
+#include "Player.h"
 #include "DoubleBuffer.h"
 
 Bullet::Bullet()
@@ -16,6 +17,7 @@ void Bullet::Initialize()
 
 void Bullet::Update()
 {
+	
 }
 
 void Bullet::Render()
@@ -23,7 +25,7 @@ void Bullet::Render()
 	DoubleBuffer::GetInstance()->WriteBuffer(
 		m_tInfo.Position.x,
 		m_tInfo.Position.y,
-		(char*)"Bullet");
+		(char*)"¡Ý");
 }
 
 void Bullet::Release()

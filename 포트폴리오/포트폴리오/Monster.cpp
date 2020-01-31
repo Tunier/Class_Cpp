@@ -16,6 +16,7 @@ void Monster::Initialize()
 
 void Monster::Update()
 {
+
 }
 
 void Monster::Render()
@@ -23,7 +24,7 @@ void Monster::Render()
 	DoubleBuffer::GetInstance()->WriteBuffer(
 		m_tInfo.Position.x,
 		m_tInfo.Position.y,
-		(char*)"Monster");
+		(char*)"M");
 }
 
 void Monster::Release()

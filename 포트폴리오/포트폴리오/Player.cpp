@@ -23,7 +23,7 @@ void Player::Render()
 	DoubleBuffer::GetInstance()->WriteBuffer(
 		m_tInfo.Position.x,
 		m_tInfo.Position.y,
-		(char*)"Player");
+		(char*)"P");
 }
 
 void Player::Release()
