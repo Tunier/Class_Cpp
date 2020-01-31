@@ -1,6 +1,6 @@
 #include "Bullet.h"
-#include "Player.h"
 #include "DoubleBuffer.h"
+#include "ObjectManager.h"
 
 Bullet::Bullet()
 {
@@ -17,7 +17,7 @@ void Bullet::Initialize()
 
 void Bullet::Update()
 {
-	
+	Object
 }
 
 void Bullet::Render()

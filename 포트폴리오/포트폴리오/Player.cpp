@@ -1,4 +1,5 @@
 #include "Player.h"
+#include "InputManager.h"
 #include "DoubleBuffer.h"
 
 Player::Player()
@@ -16,6 +17,26 @@ void Player::Initialize()
 
 void Player::Update()
 {
+	DWORD dwKey = InputManager::GetInstance()->GetKey();
+
+	switch (dwKey)
+	{
+	case KEYID_UP:
+		m_tInfo.Position.y -= 1;
+		break;
+
+	case KEYID_DOWN:
+		m_tInfo.Position.y += 1;
+		break;
+
+	case KEYID_LEFT:
+		m_tInfo.Position.x -= 2;
+		break;
+
+	case KEYID_RIGHT:
+		m_tInfo.Position.x += 2;
+		break;
+	}
 }
 
 void Player::Render()
