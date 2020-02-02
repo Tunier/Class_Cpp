@@ -1,4 +1,5 @@
 #include "Bullet.h"
+#include "Player.h"
 #include "DoubleBuffer.h"
 #include "ObjectManager.h"
 
@@ -12,12 +13,12 @@ Bullet::~Bullet()
 
 void Bullet::Initialize()
 {
-	m_tInfo.Position = Vector3(30.f, 30.f);
+	m_tInfo.Position = ObjectManager::GetInstance()->GetPlayer()->SetPosition;
 }
 
 void Bullet::Update()
 {
-	m_tInfo.Position.x = ObjectManager::GetInstance()->GetPlayer()->GetPosition().x + 1.f;
+	m_tInfo.Position = ObjectManager::GetInstance()->GetPlayer()->GetPosition();
 }
 
 void Bullet::Render()
@@ -25,7 +26,7 @@ void Bullet::Render()
 	DoubleBuffer::GetInstance()->WriteBuffer(
 		m_tInfo.Position.x,
 		m_tInfo.Position.y,
-		(char*)"¡Ý");
+		(char*)"O");
 }
 
 void Bullet::Release()
