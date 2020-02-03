@@ -22,7 +22,7 @@ void Stage::Initialize()
 	m_pPlayer = ObjectFactory<Player>::CreateObject(Vector3(10.f, 10.f));
 	ObjectManager::GetInstance()->SetPlayer(m_pPlayer);
 
-	m_pBullet = ObjectFactory<Bullet>::CreateObject();
+	m_pBullet = ObjectFactory<Bullet>::CreateObject(64);
 	ObjectManager::GetInstance()->SetBullet(m_pBullet);
 
 	m_pMonster = ObjectFactory<Monster>::CreateObject(Vector3(20.f, 20.f));
@@ -33,7 +33,7 @@ void Stage::Update()
 {
 	m_pPlayer->Update();
 	m_pMonster->Update();
-	m_pBullet->Update();
+	//m_pBullet->Update();
 
 	DWORD dwKey = InputManager::GetInstance()->GetKey();
 
@@ -43,20 +43,22 @@ void Stage::Update()
 		SceneManager::GetInstance()->SetScene(SCENEIDES_EXIT);
 
 	case KEYID_SPACE:
-		ObjectManager::GetInstance()->GetBullet()->Initialize();
+		ObjectManager::GetInstance()->GetBullet(0)->Initialize();
 	}
 
+	/*
 	if (ObjectManager::GetInstance()->GetBullet()->GetPosition().x > 118)
 	{
 		ObjectManager::GetInstance()->GetBullet()->SetPosition(Vector3(200.f, 200.f));
 		ObjectManager::GetInstance()->GetBullet()->SetRotate(ROTATEIDS_NEUTRALITY);
 	}
+	*/
 }
 
 void Stage::Render()
 {
 	m_pMonster->Render();
-	m_pBullet->Render();
+	//m_pBullet->Render();
 	m_pPlayer->Render();
 }
 

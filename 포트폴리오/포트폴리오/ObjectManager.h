@@ -22,12 +22,12 @@ public:
 private:
 	Object* m_pPlayer;
 	Object* m_pMonster;
-	Object* m_pBullet;
+	Object* m_pBullet[64];
 
 public:
 	Object* GetPlayer() { return m_pPlayer; }
 	Object* GetMonster() { return m_pMonster; }
-	Object* GetBullet() { return m_pBullet; }
+	Object* GetBullet(int i) { return m_pBullet[i]; }
 
 	void SetPlayer(Object* _pPlayer) { m_pPlayer = _pPlayer; }
 	void SetMonster(Object* _pMonster) { m_pMonster = _pMonster; }

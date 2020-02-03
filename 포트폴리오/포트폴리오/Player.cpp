@@ -13,7 +13,7 @@ Player::~Player()
 
 void Player::Initialize()
 {
-	m_tInfo.Rotate = ROTATEIDS_RIGHT;
+	m_tInfo.Rotate = ROTATEIDS_NEUTRALITY;
 
 	m_tInfo.Scale = Vector3(2.f, 1.f);
 }
