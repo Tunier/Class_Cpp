@@ -31,6 +31,6 @@ public:
 
 	void SetPlayer(Object* _pPlayer) { m_pPlayer = _pPlayer; }
 	void SetMonster(Object* _pMonster) { m_pMonster = _pMonster; }
-	void SetBullet(Object* _pBullet) { m_pBullet = _pBullet; }
+	void SetBullet(Object* _pBullet, int _i) { m_pBullet[_i] = _pBullet; }
 };
 

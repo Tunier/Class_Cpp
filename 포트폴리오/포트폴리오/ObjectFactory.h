@@ -21,12 +21,4 @@ public:
 
 		return pObj;
 	}
-
-	static Object* CreateObject(int i)
-	{
-		Object* pObj[i] = new T;
-		pObj[i]->Initialize();
-
-		return pObj;
-	}
 };

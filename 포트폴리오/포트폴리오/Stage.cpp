@@ -22,8 +22,8 @@ void Stage::Initialize()
 	m_pPlayer = ObjectFactory<Player>::CreateObject(Vector3(10.f, 10.f));
 	ObjectManager::GetInstance()->SetPlayer(m_pPlayer);
 
-	m_pBullet = ObjectFactory<Bullet>::CreateObject(64);
-	ObjectManager::GetInstance()->SetBullet(m_pBullet);
+	m_pBullet = ObjectFactory<Bullet>::CreateObject();
+	ObjectManager::GetInstance()->SetBullet(m_pBullet, 0);
 
 	m_pMonster = ObjectFactory<Monster>::CreateObject(Vector3(20.f, 20.f));
 	ObjectManager::GetInstance()->SetMonster(m_pMonster);
@@ -33,7 +33,7 @@ void Stage::Update()
 {
 	m_pPlayer->Update();
 	m_pMonster->Update();
-	//m_pBullet->Update();
+	m_pBullet->Update();
 
 	DWORD dwKey = InputManager::GetInstance()->GetKey();
 
@@ -58,14 +58,14 @@ void Stage::Update()
 void Stage::Render()
 {
 	m_pMonster->Render();
-	//m_pBullet->Render();
+	m_pBullet->Render();
 	m_pPlayer->Render();
 }
 
 void Stage::Release()
 {
 	ObjectManager::GetInstance()->SetPlayer(m_pPlayer);
-	ObjectManager::GetInstance()->SetBullet(m_pBullet);
+	ObjectManager::GetInstance()->SetBullet(m_pBullet,0);
 	ObjectManager::GetInstance()->SetMonster(m_pMonster);
 
 	delete m_pPlayer;
