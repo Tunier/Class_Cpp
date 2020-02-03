@@ -11,7 +11,7 @@ int main(void)
 
 	while (true)
 	{
-		if (dwTime + 35 < GetTickCount())
+		if (dwTime + 60 < GetTickCount())
 		{
 			dwTime = GetTickCount();
 			system("cls");

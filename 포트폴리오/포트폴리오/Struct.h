@@ -17,4 +17,6 @@ typedef struct tagTrasform
 {
 	Vector3 Position;
 	Vector3 Scale;
+	
+	int Rotate;
 }Transform;

@@ -21,9 +21,16 @@ public:
 	}
 private:
 	Object* m_pPlayer;
+	Object* m_pMonster;
+	Object* m_pBullet;
 
 public:
 	Object* GetPlayer() { return m_pPlayer; }
+	Object* GetMonster() { return m_pMonster; }
+	Object* GetBullet() { return m_pBullet; }
+
 	void SetPlayer(Object* _pPlayer) { m_pPlayer = _pPlayer; }
+	void SetMonster(Object* _pMonster) { m_pMonster = _pMonster; }
+	void SetBullet(Object* _pBullet) { m_pBullet = _pBullet; }
 };
 

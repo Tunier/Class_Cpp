@@ -61,6 +61,9 @@
     <Filter Include="소스 파일\99. Manager\SceneManager">
       <UniqueIdentifier>{d830d8e6-0b57-47ac-9257-723d4cb4eff9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\02. Object\Wall">
+      <UniqueIdentifier>{a2f0f327-eede-404f-8d87-2833277df85a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -104,6 +107,9 @@
     </ClCompile>
     <ClCompile Include="DoubleBuffer.cpp">
       <Filter>소스 파일\99. Manager\DoubleBuffer</Filter>
+    </ClCompile>
+    <ClCompile Include="Wall.cpp">
+      <Filter>소스 파일\02. Object\Wall</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -160,6 +166,9 @@
     </ClInclude>
     <ClInclude Include="DoubleBuffer.h">
       <Filter>소스 파일\99. Manager\DoubleBuffer</Filter>
+    </ClInclude>
+    <ClInclude Include="Wall.h">
+      <Filter>소스 파일\02. Object\Wall</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
