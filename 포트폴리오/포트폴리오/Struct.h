@@ -19,4 +19,5 @@ typedef struct tagTrasform
 	Vector3 Scale;
 	
 	int Rotate;
+	bool bRender;
 }Transform;

@@ -16,4 +16,5 @@ private:
 	Object* m_pPlayer;
 	Object* m_pMonster;
 	Object* m_pBullet;
+	Object* m_pWall;
 };

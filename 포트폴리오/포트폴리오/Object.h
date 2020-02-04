@@ -17,9 +17,11 @@ public:
 	Vector3 GetPosition() { return m_tInfo.Position; }
 	Vector3 GetScale() { return m_tInfo.Scale; }
 	int GetRotate() { return m_tInfo.Rotate; }
+	bool GetRender() { return m_tInfo.bRender; }
 
 	void SetPosition(Vector3 _vPos) { m_tInfo.Position = _vPos; }
 	void SetScale(Vector3 _vScale) { m_tInfo.Scale = _vScale; }
 	void SetRotate(int _vRotate) { m_tInfo.Rotate = _vRotate; }
+	void SetRender(bool _vbRender) { m_tInfo.bRender = _vbRender; }
 };
 

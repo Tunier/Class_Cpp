@@ -7,6 +7,12 @@ Bullet::Bullet()
 
 }
 
+Bullet::Bullet(const Bullet& T)
+{
+	for (int i = 0; i < 64; ++i)
+		ObjectManager::GetInstance()->GetBullet()->SetPosition();
+}
+
 Bullet::~Bullet()
 {
 
@@ -46,6 +52,7 @@ void Bullet::Initialize()
 	}
 
 	m_tInfo.Scale = Vector3(2.f, 1.f);
+	m_tInfo.bRender = 0;
 }
 
 void Bullet::Update()
@@ -68,7 +75,7 @@ void Bullet::Update()
 		m_tInfo.Position.x += 2;
 		break;
 	}
-		
+
 }
 
 void Bullet::Render()

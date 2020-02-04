@@ -23,7 +23,8 @@ void Stage::Initialize()
 	ObjectManager::GetInstance()->SetPlayer(m_pPlayer);
 
 	m_pBullet = ObjectFactory<Bullet>::CreateObject();
-	ObjectManager::GetInstance()->SetBullet(m_pBullet, 0);
+	for (int i = 0; i < 64; ++i)
+		ObjectManager::GetInstance()->SetBullet(m_pBullet, i);
 
 	m_pMonster = ObjectFactory<Monster>::CreateObject(Vector3(20.f, 20.f));
 	ObjectManager::GetInstance()->SetMonster(m_pMonster);
@@ -43,30 +44,49 @@ void Stage::Update()
 		SceneManager::GetInstance()->SetScene(SCENEIDES_EXIT);
 
 	case KEYID_SPACE:
-		ObjectManager::GetInstance()->GetBullet(0)->Initialize();
+		for (int i = 0; i < 64; ++i)
+			if (ObjectManager::GetInstance()->GetBullet(i)->GetRender())
+			{
+				ObjectManager::GetInstance()->GetBullet(i)->Initialize();
+				break;
+			}
 	}
 
-	/*
-	if (ObjectManager::GetInstance()->GetBullet()->GetPosition().x > 118)
-	{
-		ObjectManager::GetInstance()->GetBullet()->SetPosition(Vector3(200.f, 200.f));
-		ObjectManager::GetInstance()->GetBullet()->SetRotate(ROTATEIDS_NEUTRALITY);
-	}
-	*/
+	for (int i = 0; i < 64; ++i)
+		if (ObjectManager::GetInstance()->GetBullet(i)->GetPosition().x > 118)
+			ObjectManager::GetInstance()->GetBullet(i)->SetRender(0);
+
+	for (int i = 0; i < 64; ++i)
+		if (ObjectManager::GetInstance()->GetBullet(i)->GetPosition().y > 40)
+			ObjectManager::GetInstance()->GetBullet(i)->SetRender(0);
 }
 
 void Stage::Render()
 {
 	m_pMonster->Render();
-	m_pBullet->Render();
+
+	for (int i = 0; i < 64; ++i)
+	{
+		if (ObjectManager::GetInstance()->GetBullet(i)->GetRender())
+		{
+			m_pBullet->Render();
+		}
+	}
+
 	m_pPlayer->Render();
+	m_pWall->Render();
 }
 
 void Stage::Release()
 {
 	ObjectManager::GetInstance()->SetPlayer(m_pPlayer);
-	ObjectManager::GetInstance()->SetBullet(m_pBullet,0);
+
 	ObjectManager::GetInstance()->SetMonster(m_pMonster);
+
+	for (int i = 0; i < 64; ++i)
+		ObjectManager::GetInstance()->SetBullet(m_pBullet, i);
+
+	ObjectManager::GetInstance()->SetWall(m_pWall);
 
 	delete m_pPlayer;
 	m_pPlayer = NULL;
@@ -76,4 +96,7 @@ void Stage::Release()
 
 	delete m_pBullet;
 	m_pBullet = NULL;
+
+	delete m_pWall;
+	m_pWall = NULL;
 }
