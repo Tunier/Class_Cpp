@@ -24,7 +24,6 @@ private:
 public:
 	void Update();
 	void Render();
-
 public:
 	void SetScene(SCENEIDE _sceneID);
 };

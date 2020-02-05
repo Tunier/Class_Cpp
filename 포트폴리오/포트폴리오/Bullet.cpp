@@ -7,12 +7,6 @@ Bullet::Bullet()
 
 }
 
-Bullet::Bullet(const Bullet& T)
-{
-	for (int i = 0; i < 64; ++i)
-		ObjectManager::GetInstance()->GetBullet()->SetPosition();
-}
-
 Bullet::~Bullet()
 {
 
@@ -50,6 +44,7 @@ void Bullet::Initialize()
 		m_tInfo.Rotate = ROTATEIDS_NEUTRALITY;
 		break;
 	}
+	
 
 	m_tInfo.Scale = Vector3(2.f, 1.f);
 	m_tInfo.bRender = 0;

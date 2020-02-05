@@ -13,37 +13,77 @@ Player::~Player()
 
 void Player::Initialize()
 {
-	m_tInfo.Rotate = ROTATEIDS_NEUTRALITY;
+	m_tInfo.Rotate = ROTATEIDS_RIGHT;
 
 	m_tInfo.Scale = Vector3(2.f, 1.f);
+
+	m_tInfo.bRender = 1;
+
+	m_tInfo.Position = Vector3(10.f, 10.f);
 }
 
 void Player::Update()
 {
 	DWORD dwKey = InputManager::GetInstance()->GetKey();
 
+
+
 	switch (dwKey)
 	{
 	case KEYID_UP:
-		m_tInfo.Position.y -= 1;
-		m_tInfo.Rotate = ROTATEIDS_UP;
+		for (int i = 0; i < 512; ++i)
+		{
+			if (!(m_tInfo.Position.y - 2 == ObjectManager::GetInstance()->GetWall(i)->GetPosition().y)) {}
+			else
+			{
+				m_tInfo.Position.y -= 1;
+				break;
+			}
+			m_tInfo.Rotate = ROTATEIDS_UP;
+		}
 		break;
 
 	case KEYID_DOWN:
-		m_tInfo.Position.y += 1;
-		m_tInfo.Rotate = ROTATEIDS_DOWN;
+		for (int i = 0; i < 512; ++i)
+		{
+			if (!(m_tInfo.Position.y + 2 == ObjectManager::GetInstance()->GetWall(i)->GetPosition().y)) {}
+			else
+			{
+				m_tInfo.Position.y += 1;
+				break;
+			}
+			m_tInfo.Rotate = ROTATEIDS_DOWN;
+		}
 		break;
 
 	case KEYID_LEFT:
-		m_tInfo.Position.x -= 2;
-		m_tInfo.Rotate = ROTATEIDS_LEFT;
+		for (int i = 0; i < 512; ++i)
+		{
+			if (!(m_tInfo.Position.x - 4 == ObjectManager::GetInstance()->GetWall(i)->GetPosition().x)) {}
+			else
+			{
+				m_tInfo.Position.x -= 2;
+				break;
+			}
+			m_tInfo.Rotate = ROTATEIDS_LEFT;
+		}
 		break;
 
 	case KEYID_RIGHT:
-		m_tInfo.Position.x += 2;
-		m_tInfo.Rotate = ROTATEIDS_RIGHT;
+		for (int i = 0; i < 512; ++i)
+		{
+			if (!(m_tInfo.Position.x + 4 == ObjectManager::GetInstance()->GetWall(i)->GetPosition().x)) {}
+			else
+			{
+				m_tInfo.Position.x += 2;
+				break;
+			}
+			m_tInfo.Rotate = ROTATEIDS_RIGHT;
+		}
 		break;
 	}
+
+
 }
 
 void Player::Render()

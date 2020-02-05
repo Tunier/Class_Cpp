@@ -7,6 +7,7 @@
 #include "Player.h"
 #include "Monster.h"
 #include "Bullet.h"
+#include "Wall.h"
 
 Stage::Stage()
 {
@@ -19,22 +20,49 @@ Stage::~Stage()
 
 void Stage::Initialize()
 {
+	m_pMonster = ObjectFactory<Monster>::CreateObject(Vector3(20.f, 20.f));
+	ObjectManager::GetInstance()->SetMonster(m_pMonster);
+
 	m_pPlayer = ObjectFactory<Player>::CreateObject(Vector3(10.f, 10.f));
 	ObjectManager::GetInstance()->SetPlayer(m_pPlayer);
 
-	m_pBullet = ObjectFactory<Bullet>::CreateObject();
-	for (int i = 0; i < 64; ++i)
-		ObjectManager::GetInstance()->SetBullet(m_pBullet, i);
 
-	m_pMonster = ObjectFactory<Monster>::CreateObject(Vector3(20.f, 20.f));
-	ObjectManager::GetInstance()->SetMonster(m_pMonster);
+	for (int i = 0; i < 64; ++i)
+	{
+		Object* pObj = ObjectFactory<Bullet>::CreateObject();
+		ObjectManager::GetInstance()->SetBullet(pObj, i);
+		ObjectManager::GetInstance()->GetBullet(i)->SetRender(0);
+	}
+
+	for (int i = 0; i < 512; ++i)
+	{
+		Object* pObj = ObjectFactory<Wall>::CreateObject();
+		ObjectManager::GetInstance()->SetWall(pObj, i);
+		ObjectManager::GetInstance()->GetWall(i)->SetRender(0);
+	}
 }
 
 void Stage::Update()
 {
-	m_pPlayer->Update();
 	m_pMonster->Update();
-	m_pBullet->Update();
+	m_pPlayer->Update();
+
+	for (int i = 0; i < 64; ++i)
+	{
+		if (ObjectManager::GetInstance()->GetBullet(i)->GetRender())
+		{
+			ObjectManager::GetInstance()->GetBullet(i)->Update();
+		}
+	}
+
+	for (int i = 0; i < 512; ++i)
+	{
+		if (ObjectManager::GetInstance()->GetWall(i)->GetRender())
+		{
+			ObjectManager::GetInstance()->GetWall(i)->Update();
+		}
+	}
+
 
 	DWORD dwKey = InputManager::GetInstance()->GetKey();
 
@@ -42,39 +70,125 @@ void Stage::Update()
 	{
 	case KEYID_ENTER:
 		SceneManager::GetInstance()->SetScene(SCENEIDES_EXIT);
+		break;
 
 	case KEYID_SPACE:
 		for (int i = 0; i < 64; ++i)
-			if (ObjectManager::GetInstance()->GetBullet(i)->GetRender())
+			if (!ObjectManager::GetInstance()->GetBullet(i)->GetRender())
 			{
 				ObjectManager::GetInstance()->GetBullet(i)->Initialize();
+				ObjectManager::GetInstance()->GetBullet(i)->SetPosition(m_pPlayer->GetPosition());
+				ObjectManager::GetInstance()->GetBullet(i)->SetRender(1);
 				break;
 			}
+		break;
 	}
 
-	for (int i = 0; i < 64; ++i)
+	/*for (int i = 0; i < 64; ++i)
+	{
 		if (ObjectManager::GetInstance()->GetBullet(i)->GetPosition().x > 118)
 			ObjectManager::GetInstance()->GetBullet(i)->SetRender(0);
 
-	for (int i = 0; i < 64; ++i)
+		if (ObjectManager::GetInstance()->GetBullet(i)->GetPosition().x < 0)
+			ObjectManager::GetInstance()->GetBullet(i)->SetRender(0);
+
 		if (ObjectManager::GetInstance()->GetBullet(i)->GetPosition().y > 40)
 			ObjectManager::GetInstance()->GetBullet(i)->SetRender(0);
+
+		if (ObjectManager::GetInstance()->GetBullet(i)->GetPosition().y < 0)
+			ObjectManager::GetInstance()->GetBullet(i)->SetRender(0);
+	}*/
+
+	for (int i = 0; i < 64; ++i)
+	{
+		for (int j = 0; j < 512; ++j)
+		{
+			if (ObjectManager::GetInstance()->GetBullet(i)->GetPosition().x < ObjectManager::GetInstance()->GetWall(j)->GetPosition().x + ObjectManager::GetInstance()->GetWall(j)->GetScale().x &&
+				ObjectManager::GetInstance()->GetWall(j)->GetPosition().x < ObjectManager::GetInstance()->GetBullet(i)->GetPosition().x + ObjectManager::GetInstance()->GetBullet(i)->GetScale().x &&
+				ObjectManager::GetInstance()->GetBullet(i)->GetPosition().y == ObjectManager::GetInstance()->GetWall(j)->GetPosition().y)
+				ObjectManager::GetInstance()->GetBullet(i)->SetRender(0);
+		}
+	}
+
+	for (int i = 0; i < 64; ++i)
+	{
+		if (ObjectManager::GetInstance()->GetBullet(i)->GetPosition().x < ObjectManager::GetInstance()->GetMonster()->GetPosition().x + ObjectManager::GetInstance()->GetMonster()->GetScale().x &&
+			ObjectManager::GetInstance()->GetMonster()->GetPosition().x < ObjectManager::GetInstance()->GetBullet(i)->GetPosition().x + ObjectManager::GetInstance()->GetBullet(i)->GetScale().x &&
+			ObjectManager::GetInstance()->GetBullet(i)->GetPosition().y == ObjectManager::GetInstance()->GetMonster()->GetPosition().y)
+		{
+			ObjectManager::GetInstance()->GetBullet(i)->SetRender(0);
+			ObjectManager::GetInstance()->GetMonster()->SetRender(0);
+		}
+	}
+
+
+	for (int i = 0; i < 512; ++i)
+	{
+		if (i == 0)
+		{
+			ObjectManager::GetInstance()->GetWall(i)->SetPosition(Vector3(8.f, 8.f));
+			ObjectManager::GetInstance()->GetWall(i)->SetRender(1);
+		}
+
+		else if (i < 52)
+		{
+			ObjectManager::GetInstance()->GetWall(i)->SetPosition(
+				Vector3(ObjectManager::GetInstance()->GetWall(i - 1)->GetPosition().x + 2,
+					ObjectManager::GetInstance()->GetWall(i - 1)->GetPosition().y));
+			ObjectManager::GetInstance()->GetWall(i)->SetRender(1);
+		}
+
+		else if (i < 75)
+		{
+			ObjectManager::GetInstance()->GetWall(i)->SetPosition(
+				Vector3(ObjectManager::GetInstance()->GetWall(i - 1)->GetPosition().x,
+					ObjectManager::GetInstance()->GetWall(i - 1)->GetPosition().y + 1));
+			ObjectManager::GetInstance()->GetWall(i)->SetRender(1);
+		}
+
+		else if (i < 126)
+		{
+			ObjectManager::GetInstance()->GetWall(i)->SetPosition(
+				Vector3(ObjectManager::GetInstance()->GetWall(i - 1)->GetPosition().x - 2,
+					ObjectManager::GetInstance()->GetWall(i - 1)->GetPosition().y));
+			ObjectManager::GetInstance()->GetWall(i)->SetRender(1);
+		}
+
+		else if (i < 149)
+		{
+			ObjectManager::GetInstance()->GetWall(i)->SetPosition(
+				Vector3(ObjectManager::GetInstance()->GetWall(i - 1)->GetPosition().x,
+					ObjectManager::GetInstance()->GetWall(i - 1)->GetPosition().y - 1));
+			ObjectManager::GetInstance()->GetWall(i)->SetRender(1);
+		}
+	}
+	
 }
 
 void Stage::Render()
 {
-	m_pMonster->Render();
+	if (ObjectManager::GetInstance()->GetMonster()->GetRender())
+	{
+		m_pMonster->Render();
+	}
 
 	for (int i = 0; i < 64; ++i)
 	{
 		if (ObjectManager::GetInstance()->GetBullet(i)->GetRender())
 		{
-			m_pBullet->Render();
+			ObjectManager::GetInstance()->GetBullet(i)->Render();
 		}
 	}
 
 	m_pPlayer->Render();
-	m_pWall->Render();
+
+	for (int i = 0; i < 512; ++i)
+	{
+		if (ObjectManager::GetInstance()->GetWall(i)->GetRender())
+		{
+			ObjectManager::GetInstance()->GetWall(i)->Render();
+		}
+	}
 }
 
 void Stage::Release()
@@ -83,20 +197,9 @@ void Stage::Release()
 
 	ObjectManager::GetInstance()->SetMonster(m_pMonster);
 
-	for (int i = 0; i < 64; ++i)
-		ObjectManager::GetInstance()->SetBullet(m_pBullet, i);
-
-	ObjectManager::GetInstance()->SetWall(m_pWall);
-
 	delete m_pPlayer;
 	m_pPlayer = NULL;
 
 	delete m_pMonster;
 	m_pMonster = NULL;
-
-	delete m_pBullet;
-	m_pBullet = NULL;
-
-	delete m_pWall;
-	m_pWall = NULL;
 }
