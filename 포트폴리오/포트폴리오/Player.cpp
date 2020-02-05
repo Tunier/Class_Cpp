@@ -13,13 +13,13 @@ Player::~Player()
 
 void Player::Initialize()
 {
-	m_tInfo.Rotate = ROTATEIDS_RIGHT;
+	m_tInfo.Position = Vector3();
 
 	m_tInfo.Scale = Vector3(2.f, 1.f);
 
-	m_tInfo.bRender = 1;
+	m_tInfo.Rotate = ROTATEIDS_RIGHT;
 
-	m_tInfo.Position = Vector3(10.f, 10.f);
+	m_tInfo.bRender = 0;
 }
 
 void Player::Update()
