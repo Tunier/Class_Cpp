@@ -13,9 +13,9 @@ void Monster::Initialize()
 {
 	//m_tInfo.Position = Vector3(20.f, 20.f);
 
-	m_tInfo.Scale = Vector3(2.f, 1.f);
+	m_tInfo.Scale = Vector3(1.f, 1.f);
 
-	//m_tInfo.bRender = 1;
+	m_tInfo.bRender = 1;
 }
 
 void Monster::Update()

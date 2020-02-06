@@ -23,7 +23,7 @@ void Stage::Initialize()
 	m_pMonster = ObjectFactory<Monster>::CreateObject(Vector3(20.f, 20.f));
 	ObjectManager::GetInstance()->SetMonster(m_pMonster);
 
-	m_pPlayer = ObjectFactory<Player>::CreateObject(Vector3(10.f, 10.f));
+	m_pPlayer = ObjectFactory<Player>::CreateObject(Vector3(10.f, 9.f));
 	ObjectManager::GetInstance()->SetPlayer(m_pPlayer);
 
 
@@ -118,6 +118,7 @@ void Stage::Update()
 		{
 			ObjectManager::GetInstance()->GetBullet(i)->SetRender(0);
 			ObjectManager::GetInstance()->GetMonster()->SetRender(0);
+			ObjectManager::GetInstance()->GetMonster()->SetPosition(Vector3());
 		}
 	}
 
@@ -160,6 +161,18 @@ void Stage::Update()
 				Vector3(ObjectManager::GetInstance()->GetWall(i - 1)->GetPosition().x,
 					ObjectManager::GetInstance()->GetWall(i - 1)->GetPosition().y - 1));
 			ObjectManager::GetInstance()->GetWall(i)->SetRender(1);
+		}
+
+		else if (i == 149)
+		{
+			ObjectManager::GetInstance()->GetWall(i)->SetPosition(Vector3(12.f, 9.f));
+			ObjectManager::GetInstance()->GetWall(i)->SetRender(1);
+		}
+
+		else
+		{
+			ObjectManager::GetInstance()->GetWall(i)->SetPosition(Vector3(0.f, 0.f));
+			ObjectManager::GetInstance()->GetWall(i)->SetRender(0);
 		}
 	}
 	
