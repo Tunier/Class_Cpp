@@ -16,7 +16,9 @@ Wall::~Wall()
 
 void Wall::Initialize()
 {
-	m_tInfo.Scale = Vector3(1.f, 1.f);
+	m_tInfo.Position = Vector3();
+	
+	m_tInfo.Scale = Vector3(2.f, 1.f);
 
 	m_tInfo.bRender = 0;
 }

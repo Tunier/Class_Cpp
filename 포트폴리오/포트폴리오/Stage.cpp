@@ -23,7 +23,7 @@ void Stage::Initialize()
 	m_pMonster = ObjectFactory<Monster>::CreateObject(Vector3(20.f, 20.f));
 	ObjectManager::GetInstance()->SetMonster(m_pMonster);
 
-	m_pPlayer = ObjectFactory<Player>::CreateObject(Vector3(10.f, 9.f));
+	m_pPlayer = ObjectFactory<Player>::CreateObject(Vector3(10.f, 11.f));
 	ObjectManager::GetInstance()->SetPlayer(m_pPlayer);
 
 
@@ -44,9 +44,6 @@ void Stage::Initialize()
 
 void Stage::Update()
 {
-	m_pMonster->Update();
-	m_pPlayer->Update();
-
 	for (int i = 0; i < 64; ++i)
 	{
 		if (ObjectManager::GetInstance()->GetBullet(i)->GetRender())
@@ -63,6 +60,8 @@ void Stage::Update()
 		}
 	}
 
+	m_pMonster->Update();
+	m_pPlayer->Update();
 
 	DWORD dwKey = InputManager::GetInstance()->GetKey();
 
@@ -106,7 +105,10 @@ void Stage::Update()
 			if (ObjectManager::GetInstance()->GetBullet(i)->GetPosition().x < ObjectManager::GetInstance()->GetWall(j)->GetPosition().x + ObjectManager::GetInstance()->GetWall(j)->GetScale().x &&
 				ObjectManager::GetInstance()->GetWall(j)->GetPosition().x < ObjectManager::GetInstance()->GetBullet(i)->GetPosition().x + ObjectManager::GetInstance()->GetBullet(i)->GetScale().x &&
 				ObjectManager::GetInstance()->GetBullet(i)->GetPosition().y == ObjectManager::GetInstance()->GetWall(j)->GetPosition().y)
+			{
 				ObjectManager::GetInstance()->GetBullet(i)->SetRender(0);
+				ObjectManager::GetInstance()->GetBullet(i)->SetPosition(Vector3());
+			}
 		}
 	}
 
@@ -131,7 +133,7 @@ void Stage::Update()
 			ObjectManager::GetInstance()->GetWall(i)->SetRender(1);
 		}
 
-		else if (i < 52)
+		else if (i <= 51)
 		{
 			ObjectManager::GetInstance()->GetWall(i)->SetPosition(
 				Vector3(ObjectManager::GetInstance()->GetWall(i - 1)->GetPosition().x + 2,
@@ -139,7 +141,7 @@ void Stage::Update()
 			ObjectManager::GetInstance()->GetWall(i)->SetRender(1);
 		}
 
-		else if (i < 75)
+		else if (i <= 74)
 		{
 			ObjectManager::GetInstance()->GetWall(i)->SetPosition(
 				Vector3(ObjectManager::GetInstance()->GetWall(i - 1)->GetPosition().x,
@@ -147,7 +149,7 @@ void Stage::Update()
 			ObjectManager::GetInstance()->GetWall(i)->SetRender(1);
 		}
 
-		else if (i < 126)
+		else if (i <= 125)
 		{
 			ObjectManager::GetInstance()->GetWall(i)->SetPosition(
 				Vector3(ObjectManager::GetInstance()->GetWall(i - 1)->GetPosition().x - 2,
@@ -155,7 +157,7 @@ void Stage::Update()
 			ObjectManager::GetInstance()->GetWall(i)->SetRender(1);
 		}
 
-		else if (i < 149)
+		else if (i <= 148)
 		{
 			ObjectManager::GetInstance()->GetWall(i)->SetPosition(
 				Vector3(ObjectManager::GetInstance()->GetWall(i - 1)->GetPosition().x,
@@ -165,7 +167,15 @@ void Stage::Update()
 
 		else if (i == 149)
 		{
-			ObjectManager::GetInstance()->GetWall(i)->SetPosition(Vector3(12.f, 9.f));
+			ObjectManager::GetInstance()->GetWall(i)->SetPosition(Vector3(18.f, 9.f));
+			ObjectManager::GetInstance()->GetWall(i)->SetRender(1);
+		}
+
+		else if (i <= 154)
+		{
+			ObjectManager::GetInstance()->GetWall(i)->SetPosition(
+				Vector3(ObjectManager::GetInstance()->GetWall(i - 1)->GetPosition().x,
+					ObjectManager::GetInstance()->GetWall(i - 1)->GetPosition().y + 1));
 			ObjectManager::GetInstance()->GetWall(i)->SetRender(1);
 		}
 
@@ -175,7 +185,7 @@ void Stage::Update()
 			ObjectManager::GetInstance()->GetWall(i)->SetRender(0);
 		}
 	}
-	
+
 }
 
 void Stage::Render()
@@ -193,8 +203,6 @@ void Stage::Render()
 		}
 	}
 
-	m_pPlayer->Render();
-
 	for (int i = 0; i < 512; ++i)
 	{
 		if (ObjectManager::GetInstance()->GetWall(i)->GetRender())
@@ -202,6 +210,8 @@ void Stage::Render()
 			ObjectManager::GetInstance()->GetWall(i)->Render();
 		}
 	}
+
+	m_pPlayer->Render();
 }
 
 void Stage::Release()
