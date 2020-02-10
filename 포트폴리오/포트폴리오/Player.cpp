@@ -28,6 +28,7 @@ void Player::Update()
 
 	int CollisionCheck = 0;
 
+
 	switch (dwKey)
 	{
 	case KEYID_UP:
@@ -38,13 +39,13 @@ void Player::Update()
 				CollisionCheck = 1;
 			
 			if (CollisionCheck == 1)
-				break;			
+				break;
 		}
 
 		if (CollisionCheck == 0)
 		{
 			m_tInfo.Position.y -= 1;
-		}
+		}	
 
 		m_tInfo.Rotate = ROTATEIDS_UP;
 		break;

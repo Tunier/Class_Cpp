@@ -45,8 +45,10 @@ void Bullet::Initialize()
 		break;
 	}
 	
+	m_tInfo.Position = Vector3();
 
 	m_tInfo.Scale = Vector3(1.f, 1.f);
+
 	m_tInfo.bRender = 0;
 }
 

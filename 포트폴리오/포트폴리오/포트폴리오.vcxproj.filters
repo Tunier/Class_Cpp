@@ -64,6 +64,9 @@
     <Filter Include="소스 파일\02. Object\Wall">
       <UniqueIdentifier>{a2f0f327-eede-404f-8d87-2833277df85a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\02. Object\Wall2">
+      <UniqueIdentifier>{c1eb8727-a965-40dd-92e2-2a2a57c43707}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -110,6 +113,9 @@
     </ClCompile>
     <ClCompile Include="Wall.cpp">
       <Filter>소스 파일\02. Object\Wall</Filter>
+    </ClCompile>
+    <ClCompile Include="Wall2.cpp">
+      <Filter>소스 파일\02. Object\Wall2</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -169,6 +175,9 @@
     </ClInclude>
     <ClInclude Include="Wall.h">
       <Filter>소스 파일\02. Object\Wall</Filter>
+    </ClInclude>
+    <ClInclude Include="Wall2.h">
+      <Filter>소스 파일\02. Object\Wall2</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

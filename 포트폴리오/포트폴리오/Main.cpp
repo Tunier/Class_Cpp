@@ -1,7 +1,6 @@
 #include "Headers.h"
 #include "MainUpdate.h"
 
-
 int main(void)
 {
 	MainUpdate Main;
@@ -11,7 +10,7 @@ int main(void)
 
 	while (true)
 	{
-		if (dwTime + 60 < GetTickCount())
+		if (dwTime + 80 < GetTickCount())
 		{
 			dwTime = GetTickCount();
 			system("cls");

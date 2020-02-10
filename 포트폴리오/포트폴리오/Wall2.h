@@ -1,18 +1,14 @@
 #pragma once
 #include "Object.h"
 
-class Monster : public Object
+class Wall2 : public Object
 {
 public:
-	Monster();
-	virtual ~Monster();
+	Wall2();
+	virtual ~Wall2();
 public:
 	virtual void Initialize()override;
 	virtual void Update()override;
 	virtual void Render()override;
 	virtual void Release()override;
-private:
-	int MonsterMoveTurn = 0;
-	DWORD m_dwTime;
-
 };
