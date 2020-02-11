@@ -27,6 +27,14 @@ void Wall2::Update()
 
 void Wall2::Render()
 {
+	DoubleBuffer::GetInstance()->WriteBuffer(
+		m_tInfo.Position.x,
+		m_tInfo.Position.y,
+		(char*)"W W");
+	DoubleBuffer::GetInstance()->WriteBuffer(
+		m_tInfo.Position.x,
+		m_tInfo.Position.y+1,
+		(char*)"W W");
 }
 
 void Wall2::Release()
