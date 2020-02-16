@@ -61,7 +61,7 @@ void Stage::Initialize()
 			ObjectManager::GetInstance()->GetWall(i)->SetRender(1);
 		}
 
-		else if (i <= 51)
+		else if (i <= 31)
 		{
 			ObjectManager::GetInstance()->GetWall(i)->SetPosition(
 				Vector3(ObjectManager::GetInstance()->GetWall(i - 1)->GetPosition().x + 2,
@@ -69,7 +69,7 @@ void Stage::Initialize()
 			ObjectManager::GetInstance()->GetWall(i)->SetRender(1);
 		}
 
-		else if (i <= 74)
+		else if (i <= 44)
 		{
 			ObjectManager::GetInstance()->GetWall(i)->SetPosition(
 				Vector3(ObjectManager::GetInstance()->GetWall(i - 1)->GetPosition().x,
@@ -77,7 +77,7 @@ void Stage::Initialize()
 			ObjectManager::GetInstance()->GetWall(i)->SetRender(1);
 		}
 
-		else if (i <= 125)
+		else if (i <= 75)
 		{
 			ObjectManager::GetInstance()->GetWall(i)->SetPosition(
 				Vector3(ObjectManager::GetInstance()->GetWall(i - 1)->GetPosition().x - 2,
@@ -85,7 +85,7 @@ void Stage::Initialize()
 			ObjectManager::GetInstance()->GetWall(i)->SetRender(1);
 		}
 
-		else if (i <= 148)
+		else if (i <= 88)
 		{
 			ObjectManager::GetInstance()->GetWall(i)->SetPosition(
 				Vector3(ObjectManager::GetInstance()->GetWall(i - 1)->GetPosition().x,
@@ -93,13 +93,13 @@ void Stage::Initialize()
 			ObjectManager::GetInstance()->GetWall(i)->SetRender(1);
 		}
 
-		else if (i == 149)
+		else if (i == 89)
 		{
-			ObjectManager::GetInstance()->GetWall(i)->SetPosition(Vector3(18.f, 9.f));
+			ObjectManager::GetInstance()->GetWall(i)->SetPosition(Vector3(14.f, 9.f));
 			ObjectManager::GetInstance()->GetWall(i)->SetRender(1);
 		}
 
-		else if (i <= 154)
+		else if (i <= 92)
 		{
 			ObjectManager::GetInstance()->GetWall(i)->SetPosition(
 				Vector3(ObjectManager::GetInstance()->GetWall(i - 1)->GetPosition().x,
@@ -107,13 +107,13 @@ void Stage::Initialize()
 			ObjectManager::GetInstance()->GetWall(i)->SetRender(1);
 		}
 
-		else if (i == 155)
+		else if (i == 93)
 		{
-			ObjectManager::GetInstance()->GetWall(i)->SetPosition(Vector3(18.f, 25.f));
+			ObjectManager::GetInstance()->GetWall(i)->SetPosition(Vector3(14.f, 17.f));
 			ObjectManager::GetInstance()->GetWall(i)->SetRender(1);
 		}
 
-		else if (i <= 161)
+		else if (i <= 96)
 		{
 			ObjectManager::GetInstance()->GetWall(i)->SetPosition(
 				Vector3(ObjectManager::GetInstance()->GetWall(i - 1)->GetPosition().x,
@@ -232,6 +232,10 @@ void Stage::Update()
 	switch (dwKey)
 	{
 	case KEYID_ENTER:
+		SceneManager::GetInstance()->SetScene(SCENEIDES_EXIT);
+		break;
+
+	case KEYID_ESCAPE:
 		SceneManager::GetInstance()->SetScene(SCENEIDES_EXIT);
 		break;
 

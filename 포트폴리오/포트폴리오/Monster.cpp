@@ -25,7 +25,7 @@ void Monster::Initialize()
 
 void Monster::Update()
 {
-	if (m_dwTime + 500 < GetTickCount())
+	/*if (m_dwTime + 500 < GetTickCount())
 	{
 		m_dwTime = GetTickCount();
 
@@ -59,7 +59,7 @@ void Monster::Update()
 			m_tInfo.Position.x += 2;
 			break;
 		}
-	}
+	}*/
 }
 
 void Monster::Render()

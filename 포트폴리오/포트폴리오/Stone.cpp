@@ -1,18 +1,18 @@
-#include "Wall2.h"
+#include "Stone.h"
 #include "ObjectManager.h"
 #include "SceneManager.h"
 #include "InputManager.h"
 #include "DoubleBuffer.h"
 
-Wall2::Wall2()
+Stone::Stone()
 {
 }
 
-Wall2::~Wall2()
+Stone::~Stone()
 {
 }
 
-void Wall2::Initialize()
+void Stone::Initialize()
 {
 	m_tInfo.Position = Vector3();
 
@@ -21,11 +21,11 @@ void Wall2::Initialize()
 	m_tInfo.bRender = 0;
 }
 
-void Wall2::Update()
+void Stone::Update()
 {
 }
 
-void Wall2::Render()
+void Stone::Render()
 {
 	DoubleBuffer::GetInstance()->WriteBuffer(
 		m_tInfo.Position.x,
@@ -37,6 +37,6 @@ void Wall2::Render()
 		(char*)"W W");
 }
 
-void Wall2::Release()
+void Stone::Release()
 {
 }
