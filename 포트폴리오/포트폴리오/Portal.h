@@ -1,11 +1,11 @@
 #pragma once
 #include "Object.h"
 
-class Stone : public Object
+class Portal : public Object
 {
 public:
-	Stone();
-	virtual ~Stone();
+	Portal();
+	virtual ~Portal();
 public:
 	virtual void Initialize()override;
 	virtual void Update()override;

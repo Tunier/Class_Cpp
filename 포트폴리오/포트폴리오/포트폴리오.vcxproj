@@ -138,7 +138,7 @@
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="Stage.cpp" />
     <ClCompile Include="Wall.cpp" />
-    <ClCompile Include="Stone.cpp" />
+    <ClCompile Include="Portal.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bullet.h" />
@@ -160,7 +160,7 @@
     <ClInclude Include="Stage.h" />
     <ClInclude Include="Struct.h" />
     <ClInclude Include="Wall.h" />
-    <ClInclude Include="Stone.h" />
+    <ClInclude Include="Portal.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

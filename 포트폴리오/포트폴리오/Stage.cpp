@@ -26,8 +26,7 @@ void Stage::Initialize()
 		ObjectManager::GetInstance()->SetMonster(pObj, i);
 		ObjectManager::GetInstance()->GetMonster(i)->SetRender(0);
 	}
-
-
+	
 	ObjectManager::GetInstance()->GetMonster(0)->SetPosition(Vector3(20.f, 20.f));
 	ObjectManager::GetInstance()->GetMonster(0)->SetRender(1);
 
@@ -36,6 +35,9 @@ void Stage::Initialize()
 
 
 	m_pPlayer = ObjectFactory<Player>::CreateObject(Vector3(10.f, 11.f));
+	ObjectManager::GetInstance()->SetPlayer(m_pPlayer);
+
+	m_pPortal = ObjectFactory<Portal>::CreateObject(Vector3(10.f, 11.f));
 	ObjectManager::GetInstance()->SetPlayer(m_pPlayer);
 
 
@@ -95,7 +97,7 @@ void Stage::Initialize()
 
 		else if (i == 89)
 		{
-			ObjectManager::GetInstance()->GetWall(i)->SetPosition(Vector3(14.f, 9.f));
+			ObjectManager::GetInstance()->GetWall(i)->SetPosition(Vector3(16.f, 9.f));
 			ObjectManager::GetInstance()->GetWall(i)->SetRender(1);
 		}
 
@@ -109,7 +111,7 @@ void Stage::Initialize()
 
 		else if (i == 93)
 		{
-			ObjectManager::GetInstance()->GetWall(i)->SetPosition(Vector3(14.f, 17.f));
+			ObjectManager::GetInstance()->GetWall(i)->SetPosition(Vector3(16.f, 18.f));
 			ObjectManager::GetInstance()->GetWall(i)->SetRender(1);
 		}
 
@@ -121,13 +123,93 @@ void Stage::Initialize()
 			ObjectManager::GetInstance()->GetWall(i)->SetRender(1);
 		}
 
+		else if (i == 97)
+		{
+			ObjectManager::GetInstance()->GetWall(i)->SetPosition(Vector3(10.f, 15.f));
+			ObjectManager::GetInstance()->GetWall(i)->SetRender(1);
+		}
+
+		else if (i <= 104)
+		{
+			ObjectManager::GetInstance()->GetWall(i)->SetPosition(
+				Vector3(ObjectManager::GetInstance()->GetWall(i - 1)->GetPosition().x + 2,
+					ObjectManager::GetInstance()->GetWall(i - 1)->GetPosition().y));
+			ObjectManager::GetInstance()->GetWall(i)->SetRender(1);
+		}
+
+		else if (i <= 107)
+		{
+			ObjectManager::GetInstance()->GetWall(i)->SetPosition(
+				Vector3(ObjectManager::GetInstance()->GetWall(i - 1)->GetPosition().x,
+					ObjectManager::GetInstance()->GetWall(i - 1)->GetPosition().y - 1));
+			ObjectManager::GetInstance()->GetWall(i)->SetRender(1);
+		}
+
+		else if (i == 108)
+		{
+			ObjectManager::GetInstance()->GetWall(i)->SetPosition(Vector3(32.f, 12.f));
+			ObjectManager::GetInstance()->GetWall(i)->SetRender(1);
+		}
+
+		else if (i <= 116)
+		{
+			ObjectManager::GetInstance()->GetWall(i)->SetPosition(
+				Vector3(ObjectManager::GetInstance()->GetWall(i - 1)->GetPosition().x,
+					ObjectManager::GetInstance()->GetWall(i - 1)->GetPosition().y + 1));
+			ObjectManager::GetInstance()->GetWall(i)->SetRender(1);
+		}
+
+		else if (i == 117)
+		{
+			ObjectManager::GetInstance()->GetWall(i)->SetPosition(Vector3(24.f, 16.f));
+			ObjectManager::GetInstance()->GetWall(i)->SetRender(1);
+		}
+
+		else if (i <= 118)
+		{
+		ObjectManager::GetInstance()->GetWall(i)->SetPosition(
+			Vector3(ObjectManager::GetInstance()->GetWall(i - 1)->GetPosition().x,
+				ObjectManager::GetInstance()->GetWall(i - 1)->GetPosition().y + 1));
+		ObjectManager::GetInstance()->GetWall(i)->SetRender(1);
+		}
+
+		else if (i == 119)
+		{
+		ObjectManager::GetInstance()->GetWall(i)->SetPosition(Vector3(34.f, 12.f));
+		ObjectManager::GetInstance()->GetWall(i)->SetRender(1);
+		}
+
+		else if (i <= 133)
+		{
+		ObjectManager::GetInstance()->GetWall(i)->SetPosition(
+			Vector3(ObjectManager::GetInstance()->GetWall(i - 1)->GetPosition().x + 2,
+				ObjectManager::GetInstance()->GetWall(i - 1)->GetPosition().y));
+		ObjectManager::GetInstance()->GetWall(i)->SetRender(1);
+		}
+
+		else if (i <= 138)
+		{
+		ObjectManager::GetInstance()->GetWall(i)->SetPosition(
+			Vector3(ObjectManager::GetInstance()->GetWall(i - 1)->GetPosition().x,
+				ObjectManager::GetInstance()->GetWall(i - 1)->GetPosition().y + 1));
+		ObjectManager::GetInstance()->GetWall(i)->SetRender(1);
+		}
+
+		else if (i <= 149)
+		{
+		ObjectManager::GetInstance()->GetWall(i)->SetPosition(
+			Vector3(ObjectManager::GetInstance()->GetWall(i - 1)->GetPosition().x - 2,
+				ObjectManager::GetInstance()->GetWall(i - 1)->GetPosition().y));
+		ObjectManager::GetInstance()->GetWall(i)->SetRender(1);
+		}
+
 		else
 		{
 			ObjectManager::GetInstance()->GetWall(i)->SetPosition(Vector3(0.f, 0.f));
 			ObjectManager::GetInstance()->GetWall(i)->SetRender(0);
 		}
 	}
-		
+
 }
 
 void Stage::Update()
@@ -282,7 +364,7 @@ void Stage::Update()
 	}
 
 
-	
+
 }
 
 void Stage::Render()

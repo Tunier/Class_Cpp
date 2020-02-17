@@ -1,18 +1,18 @@
-#include "Stone.h"
+#include "Portal.h"
 #include "ObjectManager.h"
 #include "SceneManager.h"
 #include "InputManager.h"
 #include "DoubleBuffer.h"
 
-Stone::Stone()
+Portal::Portal()
 {
 }
 
-Stone::~Stone()
+Portal::~Portal()
 {
 }
 
-void Stone::Initialize()
+void Portal::Initialize()
 {
 	m_tInfo.Position = Vector3();
 
@@ -21,22 +21,22 @@ void Stone::Initialize()
 	m_tInfo.bRender = 0;
 }
 
-void Stone::Update()
+void Portal::Update()
 {
 }
 
-void Stone::Render()
+void Portal::Render()
 {
 	DoubleBuffer::GetInstance()->WriteBuffer(
 		m_tInfo.Position.x,
 		m_tInfo.Position.y,
-		(char*)"W W");
+		(char*)"¦£ ¦¤");
 	DoubleBuffer::GetInstance()->WriteBuffer(
 		m_tInfo.Position.x,
 		m_tInfo.Position.y+1,
-		(char*)"W W");
+		(char*)"¦¦ ¦¥");
 }
 
-void Stone::Release()
+void Portal::Release()
 {
 }
