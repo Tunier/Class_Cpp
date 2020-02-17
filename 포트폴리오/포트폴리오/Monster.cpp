@@ -25,41 +25,91 @@ void Monster::Initialize()
 
 void Monster::Update()
 {
-	/*if (m_dwTime + 500 < GetTickCount())
+	int CollisionCheck = 0;
+
+	if (m_dwTime + 500 < GetTickCount())
 	{
 		m_dwTime = GetTickCount();
 
 		srand(GetTickCount() * GetTickCount() * (rand() % 10 + 1));
 		
-		int iRand = rand() % 5 + 1;
+		int iRand = rand() % 4 + 1;
 
 		switch (iRand)
 		{
 		case 1:
-			m_tInfo.Rotate = ROTATEIDS_NEUTRALITY;
+			for (int i = 0; i < 512; ++i)
+			{
+				if (ObjectManager::GetInstance()->GetWall(i)->GetPosition().y + ObjectManager::GetInstance()->GetWall(i)->GetScale().y == m_tInfo.Position.y &&
+					m_tInfo.Position.x == ObjectManager::GetInstance()->GetWall(i)->GetPosition().x)
+					CollisionCheck = 1;
+
+				if (CollisionCheck == 1)
+					break;
+			}
+
+			if (CollisionCheck == 0)
+			{
+				m_tInfo.Position.y -= 1;
+			}
+			m_tInfo.Rotate = ROTATEIDS_UP;
 			break;
 
 		case 2:
-			m_tInfo.Rotate = ROTATEIDS_UP;
-			m_tInfo.Position.y -= 1;
+			for (int i = 0; i < 512; ++i)
+			{
+				if (ObjectManager::GetInstance()->GetWall(i)->GetPosition().y == m_tInfo.Position.y + m_tInfo.Scale.y &&
+					m_tInfo.Position.x == ObjectManager::GetInstance()->GetWall(i)->GetPosition().x)
+					CollisionCheck = 1;
+
+				if (CollisionCheck == 1)
+					break;
+			}
+
+			if (CollisionCheck == 0)
+			{
+				m_tInfo.Position.y += 1;
+			}
+			m_tInfo.Rotate = ROTATEIDS_DOWN;
 			break;
 
 		case 3:
-			m_tInfo.Rotate = ROTATEIDS_DOWN;
-			m_tInfo.Position.y += 1;
+			for (int i = 0; i < 512; ++i)
+			{
+				if (ObjectManager::GetInstance()->GetWall(i)->GetPosition().x + ObjectManager::GetInstance()->GetWall(i)->GetScale().x == m_tInfo.Position.x &&
+					m_tInfo.Position.y == ObjectManager::GetInstance()->GetWall(i)->GetPosition().y)
+					CollisionCheck = 1;
+
+				if (CollisionCheck == 1)
+					break;
+			}
+
+			if (CollisionCheck == 0)
+			{
+				m_tInfo.Position.x -= 2;
+			}
+			m_tInfo.Rotate = ROTATEIDS_LEFT;
 			break;
 
 		case 4:
-			m_tInfo.Rotate = ROTATEIDS_LEFT;
-			m_tInfo.Position.x -= 2;
-			break;
+			for (int i = 0; i < 512; ++i)
+			{
+				if (ObjectManager::GetInstance()->GetWall(i)->GetPosition().x == m_tInfo.Position.x + m_tInfo.Scale.x &&
+					m_tInfo.Position.y == ObjectManager::GetInstance()->GetWall(i)->GetPosition().y)
+					CollisionCheck = 1;
 
-		case 5:
+				if (CollisionCheck == 1)
+					break;
+			}
+
+			if (CollisionCheck == 0)
+			{
+				m_tInfo.Position.x += 2;
+			}
 			m_tInfo.Rotate = ROTATEIDS_RIGHT;
-			m_tInfo.Position.x += 2;
 			break;
 		}
-	}*/
+	}
 }
 
 void Monster::Render()

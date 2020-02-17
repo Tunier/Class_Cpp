@@ -12,7 +12,5 @@ public:
 	virtual void Render()override;
 	virtual void Release()override;
 private:
-	int MonsterMoveTurn = 0;
 	DWORD m_dwTime;
-
 };

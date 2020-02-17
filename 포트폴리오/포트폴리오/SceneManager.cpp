@@ -3,6 +3,7 @@
 #include "Logo.h"
 #include "Menu.h"
 #include "Stage.h"
+#include "Clear.h"
 
 SceneManager* SceneManager::m_pInstance = NULL;
 
@@ -34,6 +35,10 @@ void SceneManager::SetScene(SCENEIDE _sceneID)
 
 	case SCENEIDES_STAGE:
 		m_SceneState = new Stage;
+		break;
+
+	case SCENEIDES_CLEAR:
+		m_SceneState = new Clear;
 		break;
 
 	case SCENEIDES_EXIT:

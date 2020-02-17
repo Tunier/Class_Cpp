@@ -67,6 +67,9 @@
     <Filter Include="소스 파일\02. Object\Portal">
       <UniqueIdentifier>{c1eb8727-a965-40dd-92e2-2a2a57c43707}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\03. Scene\Clear">
+      <UniqueIdentifier>{e1c19d96-e5e8-449e-9f1e-bc59188cdbcc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -116,6 +119,9 @@
     </ClCompile>
     <ClCompile Include="Portal.cpp">
       <Filter>소스 파일\02. Object\Portal</Filter>
+    </ClCompile>
+    <ClCompile Include="Clear.cpp">
+      <Filter>소스 파일\03. Scene\Clear</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -178,6 +184,9 @@
     </ClInclude>
     <ClInclude Include="Portal.h">
       <Filter>소스 파일\02. Object\Portal</Filter>
+    </ClInclude>
+    <ClInclude Include="Clear.h">
+      <Filter>소스 파일\03. Scene\Clear</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

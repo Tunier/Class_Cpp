@@ -13,4 +13,4 @@ const DWORD KEYID_SHIFT = 0x00000080;
 
 
 const int CONSOL_MAX_WIDTH = 120;
-const int CONSOL_MAX_HEIGHT = 41;
+const int CONSOL_MAX_HEIGHT = 31;

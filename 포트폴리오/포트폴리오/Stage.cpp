@@ -3,11 +3,13 @@
 #include "ObjectFactory.h"
 #include "InputManager.h"
 #include "ObjectManager.h"
+#include "DoubleBuffer.h"
 
 #include "Player.h"
 #include "Monster.h"
 #include "Bullet.h"
 #include "Wall.h"
+#include "Portal.h"
 
 Stage::Stage()
 {
@@ -30,14 +32,14 @@ void Stage::Initialize()
 	ObjectManager::GetInstance()->GetMonster(0)->SetPosition(Vector3(20.f, 20.f));
 	ObjectManager::GetInstance()->GetMonster(0)->SetRender(1);
 
-	ObjectManager::GetInstance()->GetMonster(1)->SetPosition(Vector3(20.f, 18.f));
+	ObjectManager::GetInstance()->GetMonster(1)->SetPosition(Vector3(40.f, 18.f));
 	ObjectManager::GetInstance()->GetMonster(1)->SetRender(1);
 
 
 	m_pPlayer = ObjectFactory<Player>::CreateObject(Vector3(10.f, 11.f));
 	ObjectManager::GetInstance()->SetPlayer(m_pPlayer);
 
-	m_pPortal = ObjectFactory<Portal>::CreateObject(Vector3(10.f, 11.f));
+	m_pPortal = ObjectFactory<Portal>::CreateObject(Vector3(56.f, 14.f));
 	ObjectManager::GetInstance()->SetPlayer(m_pPlayer);
 
 
@@ -309,14 +311,12 @@ void Stage::Update()
 
 	m_pPlayer->Update();
 
+	m_pPortal->Update();
+
 	DWORD dwKey = InputManager::GetInstance()->GetKey();
 
 	switch (dwKey)
 	{
-	case KEYID_ENTER:
-		SceneManager::GetInstance()->SetScene(SCENEIDES_EXIT);
-		break;
-
 	case KEYID_ESCAPE:
 		SceneManager::GetInstance()->SetScene(SCENEIDES_EXIT);
 		break;
@@ -394,12 +394,31 @@ void Stage::Render()
 	}
 
 	m_pPlayer->Render();
+
+	m_pPortal->Render();
+
+	DoubleBuffer::GetInstance()->WriteBuffer(
+		80,	8, (char*)"Information");
+
+	DoubleBuffer::GetInstance()->WriteBuffer(
+		80,	10,	(char*)"@ : Portal");
+
+	DoubleBuffer::GetInstance()->WriteBuffer(
+		80,	12,	(char*)"Beat The Monsters All.");
+
+	DoubleBuffer::GetInstance()->WriteBuffer(
+		80, 14, m_Score);
 }
 
 void Stage::Release()
 {
 	ObjectManager::GetInstance()->SetPlayer(m_pPlayer);
 
+	ObjectManager::GetInstance()->SetPlayer(m_pPortal);
+
 	delete m_pPlayer;
 	m_pPlayer = NULL;
+
+	delete m_pPortal;
+	m_pPortal = NULL;
 }

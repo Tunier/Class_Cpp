@@ -50,6 +50,8 @@ void Bullet::Initialize()
 	m_tInfo.Scale = Vector3(1.f, 1.f);
 
 	m_tInfo.bRender = 0;
+
+	m_BulletType = 0;
 }
 
 void Bullet::Update()
@@ -77,10 +79,13 @@ void Bullet::Update()
 
 void Bullet::Render()
 {
-	DoubleBuffer::GetInstance()->WriteBuffer(
-		m_tInfo.Position.x,
-		m_tInfo.Position.y,
-		(char*)"B");
+	if (m_BulletType == 0)
+	{
+		DoubleBuffer::GetInstance()->WriteBuffer(
+			m_tInfo.Position.x,
+			m_tInfo.Position.y,
+			(char*)"O");
+	}
 }
 
 void Bullet::Release()

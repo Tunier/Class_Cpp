@@ -1,16 +1,15 @@
 #pragma once
-#include "Object.h"
+#include "Scene.h"
 
-class Bullet : public Object
+class Clear : public Scene
 {
 public:
-	Bullet();
-	virtual ~Bullet();
+	Clear();
+	virtual ~Clear();
 public:
 	virtual void Initialize()override;
 	virtual void Update()override;
 	virtual void Render()override;
 	virtual void Release()override;
-private:
-	int m_BulletType;
 };
+

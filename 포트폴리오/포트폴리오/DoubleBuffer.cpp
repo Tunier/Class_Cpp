@@ -49,6 +49,21 @@ void DoubleBuffer::WriteBuffer(float _x, float _y, char* _string)
 	WriteFile(m_HBuffer[m_iBufferIndex], _string, strlen(_string), &dw, NULL);
 }
 
+void DoubleBuffer::WriteBuffer(float _x, float _y, int _value)
+{
+	DWORD dw;
+
+	COORD CursorPosition = { (SHORT)_x, (SHORT)_y };
+
+	SetConsoleCursorPosition(m_HBuffer[m_iBufferIndex], CursorPosition);
+
+	char* _string = new char[4];
+
+	_itoa(_value, _string, 10);
+
+	WriteFile(m_HBuffer[m_iBufferIndex], _string, strlen(_string), &dw, NULL);
+}
+
 void DoubleBuffer::FlippingBuffer()
 {
 	SetConsoleActiveScreenBuffer(m_HBuffer[m_iBufferIndex]);

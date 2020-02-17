@@ -124,6 +124,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Bullet.cpp" />
+    <ClCompile Include="Clear.cpp" />
     <ClCompile Include="DoubleBuffer.cpp" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="Logo.cpp" />
@@ -142,6 +143,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bullet.h" />
+    <ClInclude Include="Clear.h" />
     <ClInclude Include="Define.h" />
     <ClInclude Include="DoubleBuffer.h" />
     <ClInclude Include="Enum.h" />

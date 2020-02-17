@@ -27,6 +27,7 @@ private:
 public:
 	void CreateBuffer(const int& _width, const int& _height);
 	void WriteBuffer(float _x, float _y, char* _string);
+	void WriteBuffer(float _x, float _y, int _value);
 	void FlippingBuffer();
 	void ClearBuffer();
 	void DestroyBuffer();
