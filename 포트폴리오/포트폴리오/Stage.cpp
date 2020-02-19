@@ -40,9 +40,9 @@ void Stage::Initialize()
 	ObjectManager::GetInstance()->SetPlayer(m_pPlayer);
 
 	m_pPortal = ObjectFactory<Portal>::CreateObject(Vector3(56.f, 14.f));
-	ObjectManager::GetInstance()->SetPlayer(m_pPlayer);
+	ObjectManager::GetInstance()->SetPortal(m_pPortal);
 
-
+	//* 몬스터 동적할당
 	for (int i = 0; i < 64; ++i)
 	{
 		Object* pObj = ObjectFactory<Bullet>::CreateObject();
@@ -50,6 +50,7 @@ void Stage::Initialize()
 		ObjectManager::GetInstance()->GetBullet(i)->SetRender(0);
 	}
 
+	//* 벽 동적할당
 	for (int i = 0; i < 512; ++i)
 	{
 		Object* pObj = ObjectFactory<Wall>::CreateObject();
@@ -57,6 +58,7 @@ void Stage::Initialize()
 		ObjectManager::GetInstance()->GetWall(i)->SetRender(0);
 	}
 
+	//* 벽 생성
 	for (int i = 0; i < 512; ++i)
 	{
 		if (i == 0)
@@ -212,10 +214,13 @@ void Stage::Initialize()
 		}
 	}
 
+	m_Score = 0;
 }
 
 void Stage::Update()
 {
+	m_MonsterCount = ObjectManager::GetInstance()->MonsterCount();
+
 	for (int i = 0; i < 64; ++i)
 	{
 		if (ObjectManager::GetInstance()->GetBullet(i)->GetRender())
@@ -312,6 +317,10 @@ void Stage::Update()
 	m_pPlayer->Update();
 
 	m_pPortal->Update();
+	
+	Vector3 PortalPosition = ObjectManager::GetInstance()->GetPortal()->GetPosition();
+	Vector3 PortalScale = ObjectManager::GetInstance()->GetPortal()->GetScale();
+
 
 	DWORD dwKey = InputManager::GetInstance()->GetKey();
 
@@ -355,17 +364,24 @@ void Stage::Update()
 				ObjectManager::GetInstance()->GetMonster(j)->GetPosition().x < ObjectManager::GetInstance()->GetBullet(i)->GetPosition().x + ObjectManager::GetInstance()->GetBullet(i)->GetScale().x &&
 				ObjectManager::GetInstance()->GetBullet(i)->GetPosition().y == ObjectManager::GetInstance()->GetMonster(j)->GetPosition().y)
 			{
+				ObjectManager::GetInstance()->GetBullet(i)->SetPosition(Vector3());
+				ObjectManager::GetInstance()->GetMonster(j)->SetPosition(Vector3(255.f, 255.f));
 				ObjectManager::GetInstance()->GetBullet(i)->SetRender(0);
 				ObjectManager::GetInstance()->GetMonster(j)->SetRender(0);
-				ObjectManager::GetInstance()->GetBullet(i)->SetPosition(Vector3());
-				ObjectManager::GetInstance()->GetMonster(j)->SetPosition(Vector3());
+
+				m_Score += 100;
 			}
 		}
 	}
 
-	m_MonsterCount = ObjectManager::GetInstance()->MonsterCount();
-
-
+	if (ObjectManager::GetInstance()->GetPlayer()->GetPosition().x < PortalPosition.x + PortalScale.x &&
+		PortalPosition.x < ObjectManager::GetInstance()->GetPlayer()->GetPosition().x + ObjectManager::GetInstance()->GetPlayer()->GetScale().x &&
+		(ObjectManager::GetInstance()->GetPlayer()->GetPosition().y == PortalPosition.y ||
+			ObjectManager::GetInstance()->GetPlayer()->GetPosition().y == PortalPosition.y + 1) &&
+		m_MonsterCount == 0)
+	{
+		SceneManager::GetInstance()->SetScene(SCENEIDES_CLEAR);
+	}
 
 }
 
@@ -406,13 +422,19 @@ void Stage::Render()
 		80, 10, (char*)"@ : Portal");
 
 	DoubleBuffer::GetInstance()->WriteBuffer(
-		80, 12, (char*)"Beat The Monsters All.");
+		80, 12, (char*)"Beat All Monsters.");
 
 	DoubleBuffer::GetInstance()->WriteBuffer(
 		80, 14, (char*)"remaining monster : ");
 
 	DoubleBuffer::GetInstance()->WriteBuffer(
 		100, 14, m_MonsterCount);
+
+	DoubleBuffer::GetInstance()->WriteBuffer(
+		8, 3, (char*)"Score : ");
+
+	DoubleBuffer::GetInstance()->WriteBuffer(
+		16, 3, m_Score);
 }
 
 void Stage::Release()

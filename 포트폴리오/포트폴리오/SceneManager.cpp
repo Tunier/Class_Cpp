@@ -68,4 +68,3 @@ void SceneManager::Render()
 {
 	m_SceneState->Render();
 }
-

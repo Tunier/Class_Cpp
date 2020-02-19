@@ -4,6 +4,8 @@
 #include "InputManager.h"
 #include "DoubleBuffer.h"
 
+#include "Stage.h"
+
 Portal::Portal()
 {
 }
@@ -14,7 +16,7 @@ Portal::~Portal()
 
 void Portal::Initialize()
 {
-	m_tInfo.Position = Vector3(Vector3(56.f, 14.f));
+	m_tInfo.Position = Vector3();
 
 	m_tInfo.Scale = Vector3(4.f, 2.f);
 
@@ -23,7 +25,7 @@ void Portal::Initialize()
 
 void Portal::Update()
 {
-	int MonsterAliveCheck = 0;
+	/*int MonsterAliveCheck = 1;
 
 	for (int i = 0; i < 64; ++i)
 	{
@@ -31,16 +33,8 @@ void Portal::Update()
 		{
 			MonsterAliveCheck = 1;
 		}
-	}
+	}*/
 
-	if (ObjectManager::GetInstance()->GetPlayer()->GetPosition().x < m_tInfo.Position.x + m_tInfo.Scale.x &&
-		m_tInfo.Position.x < ObjectManager::GetInstance()->GetPlayer()->GetPosition().x + ObjectManager::GetInstance()->GetPlayer()->GetScale().x &&
-		(ObjectManager::GetInstance()->GetPlayer()->GetPosition().y == m_tInfo.Position.y ||
-			ObjectManager::GetInstance()->GetPlayer()->GetPosition().y == m_tInfo.Position.y + 1) &&
-		MonsterAliveCheck == 0)
-	{
-		SceneManager::GetInstance()->SetScene(SCENEIDES_CLEAR);
-	}
 
 }
 

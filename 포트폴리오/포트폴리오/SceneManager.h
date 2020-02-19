@@ -20,11 +20,11 @@ public:
 		return m_pInstance;
 	}
 private:
-	Scene* m_SceneState;
+	Scene* m_SceneState;	
 public:
 	void Update();
 	void Render();
 public:
-	void SetScene(SCENEIDE _sceneID);
+	void SetScene(SCENEIDE _sceneID);	
 };
 

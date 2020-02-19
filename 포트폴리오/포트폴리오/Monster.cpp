@@ -12,7 +12,7 @@ Monster::~Monster()
 
 void Monster::Initialize()
 {
-	m_tInfo.Position = Vector3();
+	m_tInfo.Position = Vector3(255.f, 255.f);
 
 	m_tInfo.Scale = Vector3(2.f, 1.f);
 

@@ -17,26 +17,26 @@ void Bullet::Initialize()
 	switch (ObjectManager::GetInstance()->GetPlayer()->GetRotate())
 	{
 	case ROTATEIDS_UP:
-		m_tInfo.Position.x = ObjectManager::GetInstance()->GetPlayer()->GetPosition().x;
-		m_tInfo.Position.y = ObjectManager::GetInstance()->GetPlayer()->GetPosition().y - 1;
+		//m_tInfo.Position.x = ObjectManager::GetInstance()->GetPlayer()->GetPosition().x;
+		//m_tInfo.Position.y = ObjectManager::GetInstance()->GetPlayer()->GetPosition().y - 1;
 		m_tInfo.Rotate = ROTATEIDS_UP;
 		break;
 
 	case ROTATEIDS_DOWN:
-		m_tInfo.Position.x = ObjectManager::GetInstance()->GetPlayer()->GetPosition().x;
-		m_tInfo.Position.y = ObjectManager::GetInstance()->GetPlayer()->GetPosition().y + 1;
+		//m_tInfo.Position.x = ObjectManager::GetInstance()->GetPlayer()->GetPosition().x;
+		//m_tInfo.Position.y = ObjectManager::GetInstance()->GetPlayer()->GetPosition().y + 1;
 		m_tInfo.Rotate = ROTATEIDS_DOWN;
 		break;
 
 	case ROTATEIDS_LEFT:
-		m_tInfo.Position.x = ObjectManager::GetInstance()->GetPlayer()->GetPosition().x - 2;
-		m_tInfo.Position.y = ObjectManager::GetInstance()->GetPlayer()->GetPosition().y;
+		//m_tInfo.Position.x = ObjectManager::GetInstance()->GetPlayer()->GetPosition().x - 2;
+		//m_tInfo.Position.y = ObjectManager::GetInstance()->GetPlayer()->GetPosition().y;
 		m_tInfo.Rotate = ROTATEIDS_LEFT;
 		break;
 
 	case ROTATEIDS_RIGHT:
-		m_tInfo.Position.x = ObjectManager::GetInstance()->GetPlayer()->GetPosition().x + 2;
-		m_tInfo.Position.y = ObjectManager::GetInstance()->GetPlayer()->GetPosition().y;
+		//m_tInfo.Position.x = ObjectManager::GetInstance()->GetPlayer()->GetPosition().x + 2;
+		//m_tInfo.Position.y = ObjectManager::GetInstance()->GetPlayer()->GetPosition().y;
 		m_tInfo.Rotate = ROTATEIDS_RIGHT;
 		break;
 
