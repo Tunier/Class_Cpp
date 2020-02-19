@@ -321,6 +321,9 @@ void Stage::Update()
 	Vector3 PortalPosition = ObjectManager::GetInstance()->GetPortal()->GetPosition();
 	Vector3 PortalScale = ObjectManager::GetInstance()->GetPortal()->GetScale();
 
+	Vector3 PlayerPosition = ObjectManager::GetInstance()->GetPlayer()->GetPosition();
+	Vector3 PlayerScale = ObjectManager::GetInstance()->GetPlayer()->GetScale();
+
 
 	DWORD dwKey = InputManager::GetInstance()->GetKey();
 
@@ -374,10 +377,10 @@ void Stage::Update()
 		}
 	}
 
-	if (ObjectManager::GetInstance()->GetPlayer()->GetPosition().x < PortalPosition.x + PortalScale.x &&
-		PortalPosition.x < ObjectManager::GetInstance()->GetPlayer()->GetPosition().x + ObjectManager::GetInstance()->GetPlayer()->GetScale().x &&
-		(ObjectManager::GetInstance()->GetPlayer()->GetPosition().y == PortalPosition.y ||
-			ObjectManager::GetInstance()->GetPlayer()->GetPosition().y == PortalPosition.y + 1) &&
+	if (PlayerPosition.x < PortalPosition.x + PortalScale.x &&
+		PortalPosition.x < PlayerPosition.x + PlayerScale.x &&
+		(PlayerPosition.y == PortalPosition.y ||
+			PlayerPosition.y == PortalPosition.y + 1) &&
 		m_MonsterCount == 0)
 	{
 		SceneManager::GetInstance()->SetScene(SCENEIDES_CLEAR);
