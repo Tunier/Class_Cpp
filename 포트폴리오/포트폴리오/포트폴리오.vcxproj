@@ -124,6 +124,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="About.cpp" />
+    <ClCompile Include="BossStage.cpp" />
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Clear.cpp" />
     <ClCompile Include="DoubleBuffer.cpp" />
@@ -145,6 +146,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="About.h" />
+    <ClInclude Include="BossStage.h" />
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="Clear.h" />
     <ClInclude Include="Define.h" />

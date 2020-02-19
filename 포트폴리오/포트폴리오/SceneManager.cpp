@@ -3,6 +3,7 @@
 #include "Logo.h"
 #include "Menu.h"
 #include "Stage.h"
+#include "BossStage.h"
 #include "Option.h"
 #include "Clear.h"
 #include "About.h"
@@ -37,6 +38,10 @@ void SceneManager::SetScene(SCENEIDE _sceneID)
 
 	case SCENEIDES_STAGE:
 		m_SceneState = new Stage;
+		break;
+
+	case SCENEIDES_BOSS_STAGE:
+		m_SceneState = new BossStage;
 		break;
 
 	case SCENEIDES_OPTION:

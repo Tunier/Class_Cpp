@@ -76,6 +76,9 @@
     <Filter Include="헤더 파일\Include">
       <UniqueIdentifier>{e9a4e594-300b-4c1a-b976-d534a0c277cd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\03. Scene\BossStage">
+      <UniqueIdentifier>{69c9efa3-cc05-45d6-9cbe-1a326dd32466}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -134,6 +137,9 @@
     </ClCompile>
     <ClCompile Include="About.cpp">
       <Filter>소스 파일\03. Scene\About</Filter>
+    </ClCompile>
+    <ClCompile Include="BossStage.cpp">
+      <Filter>소스 파일\03. Scene\BossStage</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -203,6 +209,9 @@
     </ClInclude>
     <ClInclude Include="Struct.h">
       <Filter>헤더 파일\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="BossStage.h">
+      <Filter>소스 파일\03. Scene\BossStage</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
