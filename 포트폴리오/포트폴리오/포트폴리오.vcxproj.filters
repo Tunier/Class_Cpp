@@ -5,16 +5,9 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="헤더 파일">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
     <Filter Include="리소스 파일">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
-    <Filter Include="헤더 파일\Include">
-      <UniqueIdentifier>{e9a4e594-300b-4c1a-b976-d534a0c277cd}</UniqueIdentifier>
     </Filter>
     <Filter Include="소스 파일\02. Object">
       <UniqueIdentifier>{32638a31-787c-431a-bce0-8104fb27c28e}</UniqueIdentifier>
@@ -70,6 +63,19 @@
     <Filter Include="소스 파일\03. Scene\Clear">
       <UniqueIdentifier>{e1c19d96-e5e8-449e-9f1e-bc59188cdbcc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\03. Scene\Option">
+      <UniqueIdentifier>{45374047-69ac-4c2b-bcc4-796bd01cce0d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\03. Scene\About">
+      <UniqueIdentifier>{1b29e161-ba85-43fd-8829-fecfbd88aaf9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일\Include">
+      <UniqueIdentifier>{e9a4e594-300b-4c1a-b976-d534a0c277cd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -123,20 +129,14 @@
     <ClCompile Include="Clear.cpp">
       <Filter>소스 파일\03. Scene\Clear</Filter>
     </ClCompile>
+    <ClCompile Include="Option.cpp">
+      <Filter>소스 파일\03. Scene\Option</Filter>
+    </ClCompile>
+    <ClCompile Include="About.cpp">
+      <Filter>소스 파일\03. Scene\About</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Headers.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Enum.h">
-      <Filter>헤더 파일\Include</Filter>
-    </ClInclude>
-    <ClInclude Include="Struct.h">
-      <Filter>헤더 파일\Include</Filter>
-    </ClInclude>
-    <ClInclude Include="Define.h">
-      <Filter>헤더 파일\Include</Filter>
-    </ClInclude>
     <ClInclude Include="MainUpdate.h">
       <Filter>소스 파일\01. MainUpdate</Filter>
     </ClInclude>
@@ -187,6 +187,22 @@
     </ClInclude>
     <ClInclude Include="Clear.h">
       <Filter>소스 파일\03. Scene\Clear</Filter>
+    </ClInclude>
+    <ClInclude Include="Option.h">
+      <Filter>소스 파일\03. Scene\Option</Filter>
+    </ClInclude>
+    <ClInclude Include="About.h">
+      <Filter>소스 파일\03. Scene\About</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers.h" />
+    <ClInclude Include="Define.h">
+      <Filter>헤더 파일\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Enum.h">
+      <Filter>헤더 파일\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Struct.h">
+      <Filter>헤더 파일\Include</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

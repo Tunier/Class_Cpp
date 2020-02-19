@@ -28,7 +28,7 @@ void Stage::Initialize()
 		ObjectManager::GetInstance()->SetMonster(pObj, i);
 		ObjectManager::GetInstance()->GetMonster(i)->SetRender(0);
 	}
-	
+
 	ObjectManager::GetInstance()->GetMonster(0)->SetPosition(Vector3(20.f, 20.f));
 	ObjectManager::GetInstance()->GetMonster(0)->SetRender(1);
 
@@ -169,40 +169,40 @@ void Stage::Initialize()
 
 		else if (i <= 118)
 		{
-		ObjectManager::GetInstance()->GetWall(i)->SetPosition(
-			Vector3(ObjectManager::GetInstance()->GetWall(i - 1)->GetPosition().x,
-				ObjectManager::GetInstance()->GetWall(i - 1)->GetPosition().y + 1));
-		ObjectManager::GetInstance()->GetWall(i)->SetRender(1);
+			ObjectManager::GetInstance()->GetWall(i)->SetPosition(
+				Vector3(ObjectManager::GetInstance()->GetWall(i - 1)->GetPosition().x,
+					ObjectManager::GetInstance()->GetWall(i - 1)->GetPosition().y + 1));
+			ObjectManager::GetInstance()->GetWall(i)->SetRender(1);
 		}
 
 		else if (i == 119)
 		{
-		ObjectManager::GetInstance()->GetWall(i)->SetPosition(Vector3(34.f, 12.f));
-		ObjectManager::GetInstance()->GetWall(i)->SetRender(1);
+			ObjectManager::GetInstance()->GetWall(i)->SetPosition(Vector3(34.f, 12.f));
+			ObjectManager::GetInstance()->GetWall(i)->SetRender(1);
 		}
 
 		else if (i <= 133)
 		{
-		ObjectManager::GetInstance()->GetWall(i)->SetPosition(
-			Vector3(ObjectManager::GetInstance()->GetWall(i - 1)->GetPosition().x + 2,
-				ObjectManager::GetInstance()->GetWall(i - 1)->GetPosition().y));
-		ObjectManager::GetInstance()->GetWall(i)->SetRender(1);
+			ObjectManager::GetInstance()->GetWall(i)->SetPosition(
+				Vector3(ObjectManager::GetInstance()->GetWall(i - 1)->GetPosition().x + 2,
+					ObjectManager::GetInstance()->GetWall(i - 1)->GetPosition().y));
+			ObjectManager::GetInstance()->GetWall(i)->SetRender(1);
 		}
 
 		else if (i <= 138)
 		{
-		ObjectManager::GetInstance()->GetWall(i)->SetPosition(
-			Vector3(ObjectManager::GetInstance()->GetWall(i - 1)->GetPosition().x,
-				ObjectManager::GetInstance()->GetWall(i - 1)->GetPosition().y + 1));
-		ObjectManager::GetInstance()->GetWall(i)->SetRender(1);
+			ObjectManager::GetInstance()->GetWall(i)->SetPosition(
+				Vector3(ObjectManager::GetInstance()->GetWall(i - 1)->GetPosition().x,
+					ObjectManager::GetInstance()->GetWall(i - 1)->GetPosition().y + 1));
+			ObjectManager::GetInstance()->GetWall(i)->SetRender(1);
 		}
 
 		else if (i <= 149)
 		{
-		ObjectManager::GetInstance()->GetWall(i)->SetPosition(
-			Vector3(ObjectManager::GetInstance()->GetWall(i - 1)->GetPosition().x - 2,
-				ObjectManager::GetInstance()->GetWall(i - 1)->GetPosition().y));
-		ObjectManager::GetInstance()->GetWall(i)->SetRender(1);
+			ObjectManager::GetInstance()->GetWall(i)->SetPosition(
+				Vector3(ObjectManager::GetInstance()->GetWall(i - 1)->GetPosition().x - 2,
+					ObjectManager::GetInstance()->GetWall(i - 1)->GetPosition().y));
+			ObjectManager::GetInstance()->GetWall(i)->SetRender(1);
 		}
 
 		else
@@ -363,6 +363,8 @@ void Stage::Update()
 		}
 	}
 
+	m_MonsterCount = ObjectManager::GetInstance()->MonsterCount();
+
 
 
 }
@@ -398,16 +400,19 @@ void Stage::Render()
 	m_pPortal->Render();
 
 	DoubleBuffer::GetInstance()->WriteBuffer(
-		80,	8, (char*)"Information");
+		80, 8, (char*)"Information");
 
 	DoubleBuffer::GetInstance()->WriteBuffer(
-		80,	10,	(char*)"@ : Portal");
+		80, 10, (char*)"@ : Portal");
 
 	DoubleBuffer::GetInstance()->WriteBuffer(
-		80,	12,	(char*)"Beat The Monsters All.");
+		80, 12, (char*)"Beat The Monsters All.");
 
 	DoubleBuffer::GetInstance()->WriteBuffer(
-		80, 14, m_Score);
+		80, 14, (char*)"remaining monster : ");
+
+	DoubleBuffer::GetInstance()->WriteBuffer(
+		100, 14, m_MonsterCount);
 }
 
 void Stage::Release()

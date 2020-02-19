@@ -17,5 +17,5 @@ private:
 	Object* m_pMonster;
 	Object* m_pWall;
 	Object* m_pPortal;
-	int m_Score = 888999;
+	int m_MonsterCount;
 };

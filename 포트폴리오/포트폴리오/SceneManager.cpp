@@ -3,7 +3,9 @@
 #include "Logo.h"
 #include "Menu.h"
 #include "Stage.h"
+#include "Option.h"
 #include "Clear.h"
+#include "About.h"
 
 SceneManager* SceneManager::m_pInstance = NULL;
 
@@ -35,6 +37,14 @@ void SceneManager::SetScene(SCENEIDE _sceneID)
 
 	case SCENEIDES_STAGE:
 		m_SceneState = new Stage;
+		break;
+
+	case SCENEIDES_OPTION:
+		m_SceneState = new Option;
+		break;
+
+	case SCENEIDES_ABOUT:
+		m_SceneState = new About;
 		break;
 
 	case SCENEIDES_CLEAR:

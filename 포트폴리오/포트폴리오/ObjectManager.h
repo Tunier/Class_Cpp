@@ -1,6 +1,9 @@
 #pragma once
 #include "Headers.h"
 
+#include "Monster.h"
+#include "Object.h"
+
 class Object;
 class ObjectManager
 {
@@ -32,6 +35,18 @@ public:
 	Object* GetBullet(int _i) { return m_pBullet[_i]; }
 	Object* GetWall(int _i) { return m_pWall[_i]; }
 	Object* GetPortal() { return m_pPortal; }
+	
+	int MonsterCount() 
+	{
+		int Count = 0;
+
+		for (int i = 0 ; i < 64 ; i++)
+		{
+			if (m_pMonster[i]->GetRender())
+				Count++;
+		}
+		return Count;
+	}
 
 	void SetPlayer(Object* _pPlayer) { m_pPlayer = _pPlayer; }
 	void SetMonster(Object* _pMonster, int _i) { m_pMonster[_i] = _pMonster; }

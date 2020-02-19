@@ -1,17 +1,14 @@
 #pragma once
 #include "Scene.h"
 
-class Menu : public Scene
+class Option : public Scene
 {
 public:
-	Menu();
-	virtual ~Menu();
+	Option();
+	virtual ~Option();
 public:
 	virtual void Initialize()override;
 	virtual void Update()override;
 	virtual void Render()override;
 	virtual void Release()override;
-private:
-	int m_MenuState;
-	Transform* MenuButten[5];
 };

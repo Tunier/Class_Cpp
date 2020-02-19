@@ -21,3 +21,4 @@ typedef struct tagTrasform
 	int Rotate;
 	bool bRender;
 }Transform;
+
