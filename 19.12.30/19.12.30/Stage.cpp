@@ -10,8 +10,3 @@ Stage::~Stage()
 {
 
 }
-
-void Stage::Initialze()
-{
-
-}

@@ -12,11 +12,9 @@ int main(void)
 	
 	// SetNumber 함수 호출
 	SetNumber(&iNum);
-	
-	
+		
 
 	printf_s("%d\n", iNum);
-
 
 
 	return 0;
@@ -72,7 +70,7 @@ double = 64 bit (8 Byte)
 메모리 구성
 	Stack 영역 
 		지역변수 & 매개변수 저장.
-	Hip 영역
+	Heap 영역
 		동적 데이터를 관리하는 영역
 
 	LIFO 구조 : Last In First Out -> (RAM) 메모리의 Stack 공간
