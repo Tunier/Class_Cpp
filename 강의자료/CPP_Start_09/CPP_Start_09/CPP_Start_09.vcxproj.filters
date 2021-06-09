@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일\Include">
+      <UniqueIdentifier>{b6f05c8a-dbc4-4812-a13a-44312bb55104}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\01. MainUpdate">
+      <UniqueIdentifier>{b7a904f1-a856-4306-b8ea-17b01ae09bc2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\03. Scene">
+      <UniqueIdentifier>{c6861bba-4018-4a95-97c0-1d6e4128e784}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\03. Scene\Menu">
+      <UniqueIdentifier>{214edf34-5d9d-45c9-8dc9-552279ae3878}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\03. Scene\Logo">
+      <UniqueIdentifier>{8308f9d3-930f-4035-82b8-b60b7dd7c3ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\03. Scene\Stage">
+      <UniqueIdentifier>{7a28ac69-20f2-46d4-b913-49bd569f2a2b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02. Object">
+      <UniqueIdentifier>{43230709-6605-4914-857f-efcaf0c8a2b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02. Object\Monster">
+      <UniqueIdentifier>{c23fd83d-a511-4fbe-a03e-c6555017f675}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02. Object\Bullet">
+      <UniqueIdentifier>{8de76f13-7762-4107-9ea5-d8688a63b4c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02. Object\Player">
+      <UniqueIdentifier>{bcc77d90-e47d-4586-8670-c520ba46207c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\08. Manager">
+      <UniqueIdentifier>{a56277c1-8e67-4a55-8ec8-f87b1b9a44be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\08. Manager\SceneManager">
+      <UniqueIdentifier>{47d7a642-c7a4-4979-a792-af37fbb7222b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\08. Manager\ObjectFactory">
+      <UniqueIdentifier>{8266fc0e-8bba-4261-8c89-51e13ce84f86}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Main.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>소스 파일\02. Object\Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage.cpp">
+      <Filter>소스 파일\03. Scene\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Logo.cpp">
+      <Filter>소스 파일\03. Scene\Logo</Filter>
+    </ClCompile>
+    <ClCompile Include="MainUpdate.cpp">
+      <Filter>소스 파일\01. MainUpdate</Filter>
+    </ClCompile>
+    <ClCompile Include="Menu.cpp">
+      <Filter>소스 파일\03. Scene\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="Monster.cpp">
+      <Filter>소스 파일\02. Object\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="Object.cpp">
+      <Filter>소스 파일\02. Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>소스 파일\02. Object\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>소스 파일\03. Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneManager.cpp">
+      <Filter>소스 파일\08. Manager\SceneManager</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Bullet.h">
+      <Filter>소스 파일\02. Object\Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Enum.h">
+      <Filter>헤더 파일\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage.h">
+      <Filter>소스 파일\03. Scene\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Logo.h">
+      <Filter>소스 파일\03. Scene\Logo</Filter>
+    </ClInclude>
+    <ClInclude Include="MainUpdate.h">
+      <Filter>소스 파일\01. MainUpdate</Filter>
+    </ClInclude>
+    <ClInclude Include="Menu.h">
+      <Filter>소스 파일\03. Scene\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="Monster.h">
+      <Filter>소스 파일\02. Object\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>소스 파일\02. Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>소스 파일\02. Object\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>소스 파일\03. Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneManager.h">
+      <Filter>소스 파일\08. Manager\SceneManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Struct.h">
+      <Filter>헤더 파일\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectFactory.h">
+      <Filter>소스 파일\08. Manager\ObjectFactory</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
